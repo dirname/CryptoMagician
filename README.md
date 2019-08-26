@@ -4,6 +4,7 @@ A Powerful Encryption Tool Build On Electron
 [![Build Status](https://travis-ci.org/dirname/CryptoMagician.svg?branch=master)](https://travis-ci.org/dirname/CryptoMagician)
 ![language](https://img.shields.io/badge/language-NodeJS-green.svg)
 ![electron](https://img.shields.io/badge/Electron-3.1.12-blue.svg)
+![version](https://img.shields.io/badge/Verison-1.0.0-critical.svg)
 
 <div align="center">
   <img src="background.png">
