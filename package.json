@@ -8,6 +8,7 @@
     "start": "electron .",
     "package": "npm-run-all package:*",
     "dist": "electron-builder --win --x64",
+    "pack": "electron-builder --dir",
     "package:mac": "electron-packager . 'CryptoMan' --platform=darwin --arch=x64 --icon=app.icns --out=./dist --asar --app-version=1.0.0",
     "package:win": "electron-packager . --overwrite --platform=win32 --arch=x64 --icon=app.ico --out=./out --asar --app-version=0.0.1",
     "package:win32": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=app.ico --out=./out --asar --app-version=0.0.1",
