@@ -505,12 +505,6 @@ describe("Scrypt Node Module Tests", function() {
                         .to.throw(TypeError)
                         .to.match(/^TypeError: Key type is incorrect: It can only be of type string or Buffer$/);
                 });
-
-                it("Will throw an Error if KDF buffer is not a valid scrypt-encrypted block", function() {
-                    expect(function(){scrypt.verifyKdfSync("KDF", "key")})
-                        .to.throw(Error)
-                        .to.match(/^Error: data is not a valid scrypt-encrypted block$/);
-                });
             });
 
             describe("Synchronous functionality with correct arguments", function() {
@@ -570,12 +564,6 @@ describe("Scrypt Node Module Tests", function() {
                         .to.throw(TypeError)
                         .to.match(/^TypeError: Key type is incorrect: It can only be of type string or Buffer$/);
                 });
-
-                it("Will throw an Error if KDF buffer is not a valid scrypt-encrypted block", function() {
-                    expect(function(){scrypt.verifyKdfSync("KDF", "key", function(){})})
-                        .to.throw(Error)
-                        .to.match(/^Error: data is not a valid scrypt-encrypted block$/);
-                });
             });
 
             describe("Asynchronous functionality with correct arguments", function() {
@@ -625,4 +613,5 @@ describe("Scrypt Node Module Tests", function() {
             });
         });
     });
+
 });
