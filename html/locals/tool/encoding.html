@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/layui.css" media="all">
+    <script src="../../lib/read.js"></script>
+</head>
+<script>
+    Language.init('../../locals/lang/');
+</script>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="encoding_title">
+        <script>document.getElementById("encoding_title").innerText = Language.get("encoding_converter")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="in_encoding_label">
+            <script>document.getElementById('in_encoding_label').innerText = Language.get('in_encoding')</script>
+        </label>
+        <div class="layui-input-inline"> <!-- 注意：这一层元素并不是必须的 -->
+            <input type="text" class="layui-input" id="from_encoding" lay-verify="check_encoding" name="from_encoding" placeholder=""><script>document.getElementById("from_encoding").setAttribute("placeholder", Language.get("from_encoding"))</script>
+        </div>
+
+        <label class="layui-form-label" id="out_encoding_label">
+            <script>document.getElementById('out_encoding_label').innerText = Language.get('out_encoding')</script>
+        </label>
+        <div class="layui-input-inline"> <!-- 注意：这一层元素并不是必须的 -->
+            <input type="text" class="layui-input" id="out_encoding" lay-verify="check_encoding" name="out_encoding" placeholder=""><script>document.getElementById("out_encoding").setAttribute("placeholder", Language.get("to_encoding"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" id="encoding_text_label"><script>document.getElementById('encoding_text_label').innerText = Language.get('text')</script></label>
+        <div class="layui-input-block">
+            <textarea name="encoding_text" id="encoding_text" lay-verify="check_text"
+                      placeholder="" class="layui-textarea"></textarea><script>document.getElementById("encoding_text").setAttribute("placeholder", Language.get("please_input_text"));</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="encoding_do" id="encoding_execute">
+                <script>document.getElementById('encoding_execute').innerText = Language.get('execute')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="encoding_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('encoding_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+
+</form>
+
+
+<fieldset class="layui-elem-field layui-field-title">
+    <legend id="encoding_res">
+        <script>document.getElementById('encoding_res').innerText = Language.get('result')</script>
+    </legend>
+    <div class="layui-field-box" id="encoding_result_box">
+        <blockquote class="layui-elem-quote layui-quote-nm" id="encoding_result" hidden>
+        </blockquote>
+    </div>
+</fieldset>
+
+
+</body>
+<script src="../layui.all.js" charset="utf-8"></script>
+<script src="encoding.js"></script>
+<script>
+    !function () {
+        var $ = layui.jquery
+            , layer = layui.layer
+            , form = layui.form
+            , upload = layui.upload
+            , element = layui.element;
+
+        setEvent(form, $, upload, layer, element);
+        listen();
+    }();
+</script>
+</html>

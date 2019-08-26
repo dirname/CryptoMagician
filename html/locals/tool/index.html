@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/layui.css" media="all">
+    <script src="../layui.js" charset="utf-8"></script>
+    <script src="../../lib/read.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<script>
+    Language.init('../../locals/lang/');
+    layui.use('jquery', function(){
+        var $ = layui.jquery;
+
+        $('.site-demo-active').on('click', function(){
+            var othis = $(this), type = othis.data('type');
+            active[type] ? active[type].call(this, othis) : '';
+        });
+    });
+</script>
+<div class="layui-tab layui-tab-brief">
+    <ul class="layui-tab-title">
+        <li class="layui-this"><script>document.write(Language.get("generate"))</script></li>
+        <li><script>document.write(Language.get("passphrase"))</script></li>
+        <li><script>document.write(Language.get("convert"))</script></li>
+        <li><script>document.write(Language.get("extractor"))</script></li>
+        <li><script>document.write(Language.get("keypair_check"))</script></li>
+        <li><script>document.write(Language.get("key_parser"))</script></li>
+        <li><script>document.write(Language.get("sign_verify"))</script></li>
+        <li><script>document.write(Language.get("x509"))</script></li>
+        <li><script>document.write(Language.get("ecdh"))</script></li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show" id="keypair_generate">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#keypair_generate").load("generate.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="keypair_passphrase">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#keypair_passphrase").load("passphrase.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="keypair_convert">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#keypair_convert").load("convert.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="keypair_extract">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#keypair_extract").load("extraction.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="keypair_check">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#keypair_check").load("checker.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="keypair_parse">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#keypair_parse").load("parser.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="keypair_sign">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#keypair_sign").load("sign.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="keypair_x509">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#keypair_x509").load("x509.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="keypair_EDCH">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#keypair_EDCH").load("ecdh.html");
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+</body>
+</html>

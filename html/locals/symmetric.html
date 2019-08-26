@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="../lib/symmetric.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="symmetric_key"><script>document.getElementById('symmetric_key').innerHTML = Language.get('symmetric_key_algorithm')</script></legend>
+</fieldset>
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="symmetric_algorithm"><script>document.getElementById('symmetric_algorithm').innerHTML = Language.get('algorithm')</script></label>
+        <div class="layui-input-inline" id="div_algorithm" style="width: auto">
+            <select name="algorithm" id="algo" lay-filter="algorithm" lay-verify="required" lay-search>
+                <option id="symmetric_select" value=""><script>document.getElementById('symmetric_select').innerText = Language.get('algorithm_select')</script></option>
+                <optgroup id="Block_ciphers" label="">
+                    <option value="3DES">3DES</option>
+                    <option value="AES">AES</option>
+                    <option value="DES">DES</option>
+                    <option value="Blowfish">BLOWFISH</option>
+                    <option value="Blowfish-Compat">BLOWFISH-COMPAT</option>
+                    <option value="IDEA">IDEA</option>
+                    <option value="RC2">RC2</option>
+                    <option value="SEED">SEED</option>
+                    <option value="CAST">CAST</option>
+                    <option value="CAST128">CAST-128</option>
+                    <option value="CAST256">CAST-256</option>
+                    <option value="CAMELLIA">CAMELLIA</option>
+                    <option value="RIJNDAEL128">RIJNDAEL-128</option>
+                    <option value="RIJNDAEL192">RIJNDAEL-192</option>
+                    <option value="RIJNDAEL256">RIJNDAEL-256</option>
+                    <option value="GOST">GOST</option>
+                    <option value="TWOFISH">TWOFISH</option>
+                    <option value="SERPENT">SERPENT</option>
+                    <option value="LOKI97">LOKI97</option>
+                    <option value="SAFER">SAFER</option>
+                    <option value="SAFER+">SAFER+</option>
+                    <option value="XTEA">XTEA</option>
+                    <option value="3WAY">3-WAY</option>
+                </optgroup>
+                <optgroup id="stream_ciphers" label="">
+                    <option value="RC4">RC4</option>
+                    <option value="RC4Drop">RC4Drop</option>
+                    <option value="Rabbit">Rabbit</option>
+                    <option value="RabbitLegacy">RabbitLegacy</option>
+                    <option value="CHACHA20">CHACHA20</option>
+                    <option value="CHACHA20-POLY1305">CHACHA20-POLY1305</option>
+                    <option value="WAKE">WAKE</option>
+                </optgroup>
+            </select>
+        </div>
+        <label class="layui-form-label" id="symmetric_mode"><script>document.getElementById("symmetric_mode").innerText = Language.get("mode")</script></label>
+        <div class="layui-input-inline" id="div_mode" style="width: auto">
+            <select name="mode" id="mode" lay-filter="mode" class="select" lay-verify="type">
+                <option value="No" id="no_mode" disabled><script>document.getElementById("no_mode").innerText = Language.get("no_mode")</script></option>
+                <option value="ECB" id="ecb_mode" selected=""><script>document.getElementById("ecb_mode").innerText = Language.get("ecb")</script></option>
+                <option value="CBC" id="cbc_mode"><script>document.getElementById("cbc_mode").innerText = Language.get("cbc")</script></option>
+                <option value="OFB" id="ofb_mode"><script>document.getElementById("ofb_mode").innerText = Language.get("ofb")</script></option>
+                <option value="CFB" id="cfb_mode"><script>document.getElementById("cfb_mode").innerText = Language.get("cfb")</script></option>
+                <option value="CTR" id="ctr_mode"><script>document.getElementById("ctr_mode").innerText = Language.get("ctr")</script></option>
+                <option value="CTRGladman" id="gladman_mode"><script>document.getElementById("gladman_mode").innerText = Language.get("gladman")</script></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="symmetric_padding"><script>document.getElementById("symmetric_padding").innerText = Language.get("padding")</script></label>
+        <div class="layui-input-inline" id="div_padding" style="width: auto">
+            <select name="padding" id="padding" lay-filter="padding" class="select" lay-verify="type">
+                <option value="Pkcs7" selected="">Pkcs7</option>
+                <option value="AnsiX923">AnsiX923</option>
+                <option value="Iso97971" id="iso97971">ISO97971</option>
+                <option value="Iso10126">ISO10126</option>
+                <option value="NoPadding" id="no_padding">NoPadding</option>
+                <option value="ZeroPadding">ZeroPadding</option>
+            </select>
+        </div>
+        <label class="layui-form-label" id="symmetric_operate"><script>document.getElementById("symmetric_operate").innerText = Language.get("operate")</script></label>
+        <div class="layui-input-inline" id="div_action" style="width: auto">
+            <select name="action" lay-filter="action" class="select" lay-verify="type" id="symmetric_action">
+                <option value="Encrypt" selected="" id="symmetric_encrypt"><script>document.getElementById("symmetric_encrypt").innerText = Language.get("encryption")</script></option>
+                <option value="Decrypt" id="symmetric_decrypt"><script>document.getElementById("symmetric_decrypt").innerText = Language.get("decryption")</script></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item" id="drop_numbers" hidden>
+        <label class="layui-form-label" id="symmetric_drop_bytes"><script>document.getElementById("symmetric_drop_bytes").innerText = Language.get("drop_bytes")</script></label>
+        <div class="layui-input-block" id="div_drop">
+            <input type="text" id="drop" name="drop" lay-verify=""
+                   placeholder="" autocomplete="off"
+                   class="layui-input"><script>document.getElementById("drop").setAttribute("placeholder", Language.get("drop_tips"))</script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="symmetric_key_label"><script>document.getElementById("symmetric_key_label").innerText = Language.get("key")</script></label>
+        <div class="layui-input-block" id="div_key">
+            <input type="text" id="key" name="key" required lay-verify="check_key" placeholder=""
+                   autocomplete="off"
+                   class="layui-input"><script>document.getElementById("key").setAttribute("placeholder", Language.get("please_input_key"))</script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="symmetric_iv"><script>document.getElementById("symmetric_iv").innerText = Language.get("iv")</script></label>
+        <div class="layui-input-block" id="div_iv">
+            <input type="text" name="iv" id="iv" disabled="true" required
+                   autocomplete="off" class="layui-input layui-disabled"
+                   value=""><script>document.getElementById("iv").setAttribute("value", Language.get("ecb_not"))</script>
+        </div>
+
+        <label class="layui-form-label" id="symmetric_encoding"><script>document.getElementById("symmetric_encoding").innerText = Language.get("encoding")</script></label>
+        <div class="layui-input-block">
+            <input type="radio" name="key_code" value="Text" title="Text Key" checked="">
+            <input type="radio" name="key_code" id="isKeyBase64" value="isKeyBase64" title="Base64 Key">
+            <input type="radio" name="key_code" id="isKeyHex" value="isKeyHex" title="Hex Key">
+            <input type="radio" name="iv_code" value="Text" title="Text IV" checked="">
+            <input type="radio" name="iv_code" id="isIvBase64" value="isIvBase64" title="Base64 IV">
+            <input type="radio" name="iv_code" id="isIvHex" value="isIvHex" title="Hex IV">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="symmetric_plain_text"><script>document.getElementById("symmetric_plain_text").innerText = Language.get("plain_text")</script></label>
+        <div class="layui-input-inline" style="width: auto" id="code_type_div">
+            <select name="code_type" lay-filter="code_type" class="select" lay-verify="type" id="code_type">
+                <option value="utf8" id="symmetric_plain_encode_utf8"><script>document.getElementById("symmetric_plain_encode_utf8").innerText = Language.get("utf8")</script></option>
+                <option value="base64" id="symmetric_plain_encode_base64"><script>document.getElementById("symmetric_plain_encode_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="symmetric_plain_encode_hex"><script>document.getElementById("symmetric_plain_encode_hex").innerText = Language.get("hex")</script></option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="symmetric_cipher_text"><script>document.getElementById("symmetric_cipher_text").innerText = Language.get("cipher_text")</script></label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="result_code_type" lay-filter="code_type" class="select" lay-verify="type"
+                    id="result_code_type">
+                <option value="base64" id="symmetric_cipher_base64"><script>document.getElementById("symmetric_cipher_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="symmetric_cipher_hex"><script>document.getElementById("symmetric_cipher_hex").innerText = Language.get("hex")</script></option>
+                <option value="Both" id="symmetric_cipher_both"><script>document.getElementById("symmetric_cipher_both").innerText = Language.get("hex_and_base64")</script></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item" id="upload_file">
+        <label class="layui-form-label" id="symmetric_upload_file"><script>document.getElementById("symmetric_upload_file").innerText = Language.get("file")</script></label>
+        <div class="layui-upload-drag layui-inline" id="upload_drag">
+            <i class="layui-icon"></i>
+            <p id="upload_file_name"><script>document.getElementById("upload_file_name").innerText = Language.get("file_tips")</script></p>
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" id="textOrFile"><script>document.getElementById("textOrFile").innerText = Language.get("plain_text")</script></label>
+        <div class="layui-input-block">
+            <textarea name="action_text" id="action_text" required lay-verify="check_src"
+                      placeholder="" class="layui-textarea"></textarea><script>document.getElementById("action_text").setAttribute("placeholder", Language.get("please_input_encrypt_text"))</script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="do" id="symmetric_execute"><script>document.getElementById("symmetric_execute").innerText = Language.get("execute")</script></button>
+            <button type="button" id="clear-file" class="layui-btn layui-btn-warm"><script>document.getElementById("clear-file").innerText = Language.get("remove_file")</script></button>
+            <button type="reset" id="reset" lay-filter="reset" class="layui-btn layui-btn-primary"><script>document.getElementById("reset").innerText = Language.get("reset")</script></button>
+        </div>
+    </div>
+</form>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend id="symmetric_result"><script>document.getElementById('symmetric_result').innerHTML = Language.get('result')</script></legend>
+    <div class="layui-field-box" id="result_box">
+        <blockquote class="layui-elem-quote layui-quote-nm" id="result" hidden></blockquote>
+    </div>
+</fieldset>
+</body>
+</html>

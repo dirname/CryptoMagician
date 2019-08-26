@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="keypair_ecdh_title">
+        <script>document.getElementById("keypair_ecdh_title").innerText = Language.get("ecdh")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="ecdh_curves_label">
+            <script>document.getElementById("ecdh_curves_label").innerText = Language.get("curves")</script>
+        </label>
+        <div class="layui-input-block" style="width: auto">
+            <select name="ecdh_curves" lay-filter="ecdh_curves" lay-verify="required" lay-search style="width: auto" id="select_ecdh_curves">
+                <option value="" id="ecdh_curves_select">
+                    <script>document.getElementById('ecdh_curves_select').innerText = Language.get('curves_select')</script>
+                </option>
+                <option value="Oakley-EC2N-3">OAKLEY-EC2N-3</option>
+                <option value="Oakley-EC2N-4">OAKLEY-EC2N-4</option>
+                <option value="brainpoolP160r1">BRAINPOOLP160R1</option>
+                <option value="brainpoolP160t1">BRAINPOOLP160T1</option>
+                <option value="brainpoolP192r1">BRAINPOOLP192R1</option>
+                <option value="brainpoolP192t1">BRAINPOOLP192T1</option>
+                <option value="brainpoolP224r1">BRAINPOOLP224R1</option>
+                <option value="brainpoolP224t1">BRAINPOOLP224T1</option>
+                <option value="brainpoolP256r1">BRAINPOOLP256R1</option>
+                <option value="brainpoolP256t1">BRAINPOOLP256T1</option>
+                <option value="brainpoolP320r1">BRAINPOOLP320R1</option>
+                <option value="brainpoolP320t1">BRAINPOOLP320T1</option>
+                <option value="brainpoolP384r1">BRAINPOOLP384R1</option>
+                <option value="brainpoolP384t1">BRAINPOOLP384T1</option>
+                <option value="brainpoolP512r1">BRAINPOOLP512R1</option>
+                <option value="brainpoolP512t1">BRAINPOOLP512T1</option>
+                <option value="c2pnb163v1">C2PNB163V1</option>
+                <option value="c2pnb163v2">C2PNB163V2</option>
+                <option value="c2pnb163v3">C2PNB163V3</option>
+                <option value="c2pnb176v1">C2PNB176V1</option>
+                <option value="c2pnb208w1">C2PNB208W1</option>
+                <option value="c2pnb272w1">C2PNB272W1</option>
+                <option value="c2pnb304w1">C2PNB304W1</option>
+                <option value="c2pnb368w1">C2PNB368W1</option>
+                <option value="c2tnb191v1">C2TNB191V1</option>
+                <option value="c2tnb191v2">C2TNB191V2</option>
+                <option value="c2tnb191v3">C2TNB191V3</option>
+                <option value="c2tnb239v1">C2TNB239V1</option>
+                <option value="c2tnb239v2">C2TNB239V2</option>
+                <option value="c2tnb239v3">C2TNB239V3</option>
+                <option value="c2tnb359v1">C2TNB359V1</option>
+                <option value="c2tnb431r1">C2TNB431R1</option>
+                <option value="prime192v1">PRIME192V1</option>
+                <option value="prime192v2">PRIME192V2</option>
+                <option value="prime192v3">PRIME192V3</option>
+                <option value="prime239v1">PRIME239V1</option>
+                <option value="prime239v2">PRIME239V2</option>
+                <option value="prime239v3">PRIME239V3</option>
+                <option value="prime256v1">PRIME256V1</option>
+                <option value="secp112r1">SECP112R1</option>
+                <option value="secp112r2">SECP112R2</option>
+                <option value="secp128r1">SECP128R1</option>
+                <option value="secp128r2">SECP128R2</option>
+                <option value="secp160k1">SECP160K1</option>
+                <option value="secp160r1">SECP160R1</option>
+                <option value="secp160r2">SECP160R2</option>
+                <option value="secp192k1">SECP192K1</option>
+                <option value="secp224k1">SECP224K1</option>
+                <option value="secp224r1">SECP224R1</option>
+                <option value="secp256k1">SECP256K1</option>
+                <option value="secp384r1">SECP384R1</option>
+                <option value="secp521r1">SECP521R1</option>
+                <option value="sect113r1">SECT113R1</option>
+                <option value="sect113r2">SECT113R2</option>
+                <option value="sect131r1">SECT131R1</option>
+                <option value="sect131r2">SECT131R2</option>
+                <option value="sect163k1">SECT163K1</option>
+                <option value="sect163r1">SECT163R1</option>
+                <option value="sect163r2">SECT163R2</option>
+                <option value="sect193r1">SECT193R1</option>
+                <option value="sect193r2">SECT193R2</option>
+                <option value="sect233k1">SECT233K1</option>
+                <option value="sect233r1">SECT233R1</option>
+                <option value="sect239k1">SECT239K1</option>
+                <option value="sect283k1">SECT283K1</option>
+                <option value="sect283r1">SECT283R1</option>
+                <option value="sect409k1">SECT409K1</option>
+                <option value="sect409r1">SECT409R1</option>
+                <option value="sect571k1">SECT571K1</option>
+                <option value="sect571r1">SECT571R1</option>
+                <option value="wap-wsg-idm-ecid-wtls1">WAP-WSG-IDM-ECID-WTLS1</option>
+                <option value="wap-wsg-idm-ecid-wtls10">WAP-WSG-IDM-ECID-WTLS10</option>
+                <option value="wap-wsg-idm-ecid-wtls11">WAP-WSG-IDM-ECID-WTLS11</option>
+                <option value="wap-wsg-idm-ecid-wtls12">WAP-WSG-IDM-ECID-WTLS12</option>
+                <option value="wap-wsg-idm-ecid-wtls3">WAP-WSG-IDM-ECID-WTLS3</option>
+                <option value="wap-wsg-idm-ecid-wtls4">WAP-WSG-IDM-ECID-WTLS4</option>
+                <option value="wap-wsg-idm-ecid-wtls5">WAP-WSG-IDM-ECID-WTLS5</option>
+                <option value="wap-wsg-idm-ecid-wtls6">WAP-WSG-IDM-ECID-WTLS6</option>
+                <option value="wap-wsg-idm-ecid-wtls7">WAP-WSG-IDM-ECID-WTLS7</option>
+                <option value="wap-wsg-idm-ecid-wtls8">WAP-WSG-IDM-ECID-WTLS8</option>
+                <option value="wap-wsg-idm-ecid-wtls9">WAP-WSG-IDM-ECID-WTLS9</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="ecdh_public_encode">
+            <script>document.getElementById("ecdh_public_encode").innerText = Language.get("public_key")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="ecdh_public_type" lay-filter="ecdh_public_type" class="select" lay-verify="type" id="ecdh_public_type">
+                <option value="base64" id="ecdh_public_encode_base64">
+                    <script>document.getElementById("ecdh_public_encode_base64").innerText = Language.get("base64")</script>
+                </option>
+                <option value="hex" id="ecdh_public_encode_hex">
+                    <script>document.getElementById("ecdh_public_encode_hex").innerText = Language.get("hex")</script>
+                </option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="ecdh_private_encode">
+            <script>document.getElementById("ecdh_private_encode").innerText = Language.get("private_key")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="ecdh_private_type" lay-filter="ecdh_private_type" class="select" lay-verify="type" id="ecdh_private_type">
+                <option value="base64" id="ecdh_private_encode_base64">
+                    <script>document.getElementById("ecdh_private_encode_base64").innerText = Language.get("base64")</script>
+                </option>
+                <option value="hex" id="ecdh_private_encode_hex">
+                    <script>document.getElementById("ecdh_private_encode_hex").innerText = Language.get("hex")</script>
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="ecdh_other_encode">
+            <script>document.getElementById("ecdh_other_encode").innerText = Language.get("other_public")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="ecdh_other_type" lay-filter="ecdh_other_type" class="select" lay-verify="type">
+                <option value="base64" id="ecdh_other_encode_base64">
+                    <script>document.getElementById("ecdh_other_encode_base64").innerText = Language.get("base64")</script>
+                </option>
+                <option value="hex" id="ecdh_other_encode_hex">
+                    <script>document.getElementById("ecdh_other_encode_hex").innerText = Language.get("hex")</script>
+                </option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="ecdh_out_encode">
+            <script>document.getElementById("ecdh_out_encode").innerText = Language.get("output_text")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="ecdh_out_type" lay-filter="ecdh_out_type" class="select" lay-verify="type">
+                <option value="base64" id="ecdh_out_encode_base64">
+                    <script>document.getElementById("ecdh_out_encode_base64").innerText = Language.get("base64")</script>
+                </option>
+                <option value="hex" id="ecdh_out_encode_hex">
+                    <script>document.getElementById("ecdh_out_encode_hex").innerText = Language.get("hex")</script>
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="keypair_ecdh_public_label">
+            <script>document.getElementById("keypair_ecdh_public_label").innerText = Language.get("public_key")</script>
+        </label>
+        <div class="layui-input-block">
+       <textarea name="keypair_ecdh_public" id="keypair_ecdh_public" lay-verify="check_public"
+                 placeholder="" class="layui-textarea"></textarea>
+            <script>document.getElementById("keypair_ecdh_public").setAttribute("placeholder", Language.get("please_input_public_key"));</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="keypair_ecdh_private_label">
+            <script>document.getElementById("keypair_ecdh_private_label").innerText = Language.get("private_key")</script>
+        </label>
+        <div class="layui-input-block">
+       <textarea name="keypair_ecdh_private" id="keypair_ecdh_private" lay-verify="check_private"
+                 placeholder="" class="layui-textarea"></textarea>
+            <script>document.getElementById("keypair_ecdh_private").setAttribute("placeholder", Language.get("please_input_private_key"));</script>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="keypair_other_public_label">
+            <script>document.getElementById("keypair_other_public_label").innerText = Language.get("other_public")</script>
+        </label>
+        <div class="layui-input-block">
+       <textarea name="keypair_other_public" id="keypair_other_public" lay-verify="check_public"
+                 placeholder="" class="layui-textarea"></textarea>
+            <script>document.getElementById("keypair_other_public").setAttribute("placeholder", Language.get("please_input_public_key"));</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="ecdh_do" id="ecdh_execute">
+                <script>document.getElementById('ecdh_execute').innerText = Language.get('execute')</script>
+            </button>
+            <button type="button" id="ecdh_generate" class="layui-btn layui-btn-warm">
+                <script>document.getElementById("ecdh_generate").innerText = Language.get("generate_key")</script>
+            </button>
+            <button type="reset" id="ecdh_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('ecdh_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+</form>
+
+<fieldset class="layui-elem-field layui-field-title">
+    <legend id="ecdh_res">
+        <script>document.getElementById('ecdh_res').innerText = Language.get('result')</script>
+    </legend>
+    <div class="layui-field-box" id="ecdh_result_box">
+        <blockquote class="layui-elem-quote layui-quote-nm" id="ecdh_result" hidden>
+        </blockquote>
+    </div>
+</fieldset>
+
+</body>
+
+<script src="../layui.all.js" charset="utf-8"></script>
+<script src="element.js"></script>
+<script src="../../lib/keypair.js"></script>
+<script>
+    !function () {
+        var $ = layui.jquery
+            , layer = layui.layer
+            , form = layui.form
+            , upload = layui.upload
+            , element = layui.element;
+
+        setEvent(form, $, upload, layer, element);
+        listen();
+    }();
+</script>
+</html>

@@ -1,0 +1,76 @@
+{
+  "name": "CryptoMagician",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
+    "package": "npm-run-all package:*",
+    "dist": "electron-builder --win --x64",
+    "package:mac": "electron-packager . 'CryptoMan' --platform=darwin --arch=x64 --icon=app.icns --out=./dist --asar --app-version=1.0.0",
+    "package:win": "electron-packager . --overwrite --platform=win32 --arch=x64 --icon=app.ico --out=./out --asar --app-version=0.0.1",
+    "package:win32": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=app.ico --out=./out --asar --app-version=0.0.1",
+    "package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out",
+    "package:sign-exe": "signcode './out/Electron API Demos-win32-ia32/Electron API Demos.exe' --cert ~/electron-api-demos.p12 --prompt --name 'Electron API Demos' --url 'http://electron.atom.io'",
+    "package:installer": "node ./script/installer.js",
+    "package:sign-installer": "signcode './out/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'Electron API Demos' --url 'http://electron.atom.io'",
+    "package:mas": "./script/mas.sh",
+    "module:rebuild": "./node_modules/.bin/electron-rebuild",
+    "test": "electron-mocha test/mocha.js"
+  },
+  "repository": "https://github.com/dirname/CryptoMagician",
+  "keywords": [
+    "Crypto",
+    "AES",
+    "MD5",
+    "scrypt",
+    "des",
+    "3des",
+    "blowfish"
+  ],
+  "author": "dirname",
+  "license": "Apa",
+  "devDependencies": {
+    "chai-as-promised": "^7.1.1",
+    "electron": "3.1.12",
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^13.1.1",
+    "electron-rebuild": "^1.8.5",
+    "electron-mocha": "^8.1.1"
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.5",
+    "chai": "^4.2.0",
+    "crc": "^3.8.0",
+    "cryptian": "0.0.2",
+    "crypto-js": "^3.1.9-1",
+    "electron-store": "^4.0.0",
+    "iconv-lite": "^0.5.0",
+    "js-crypto-key-utils": "^0.6.5",
+    "js-x509-utils": "^0.4.7",
+    "mcrypt": "^0.1.15",
+    "node-rsa": "^1.0.5",
+    "protobufjs": "^6.8.8",
+    "scrypt": "^6.0.3",
+    "silly-datetime": "^0.1.2",
+    "x509-certificate": "^1.1.1"
+  },
+  "build": {
+    "appId": "github.dirname.crypto.magician",
+    "productName": "Crypto Magician",
+    "dmg": {
+      "title": "${productName} ${version}",
+      "icon": "app.icns",
+      "window": {
+        "x": 100,
+        "y": 100,
+        "width": 500,
+        "height": 300
+      }
+    },
+    "win": {
+      "icon": "app.ico"
+    }
+  }
+}

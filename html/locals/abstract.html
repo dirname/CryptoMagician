@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="message_digest_algorithm"><script>document.getElementById("message_digest_algorithm").innerText = Language.get("message_digest_algorithm")</script></legend>
+</fieldset>
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="message_digest_algo"><script>document.getElementById("message_digest_algo").innerText = Language.get("algorithm")</script></label>
+        <div class="layui-input-inline" style="width: auto" id="hash_div_algorithm">
+            <select name="abstract_algorithm" lay-filter="abstract_algo" lay-verify="required" lay-search>
+                <option value="" id="message_digest_select"><script>document.getElementById('message_digest_select').innerText = Language.get('algorithm_select')</script></option>
+                <option value="md4">MD4</option>
+                <option value="md4WithRSAEncryption">MD4WithRSAEncryption</option>
+                <option value="md5">MD5</option>
+                <option value="md5-sha1">MD5-SHA1</option>
+                <option value="md5WithRSAEncryption">MD5WithRSAEncryption</option>
+                <option value="mdc2">MDC2</option>
+                <option value="mdc2WithRSA">MDC2WithRSA</option>
+                <option value="ripemd">RIPEMD</option>
+                <option value="ripemd160">RIPEMD-160</option>
+                <option value="ripemd160WithRSA">RIPEMD160WithRSA</option>
+                <option value="rmd160">RMD-160</option>
+                <option value="sha1">SHA-1</option>
+                <option value="sha1WithRSAEncryption">SHA1WithRSAEncryption</option>
+                <option value="sha224">SHA-224</option>
+                <option value="sha224WithRSAEncryption">SHA224WithRSAEncryption</option>
+                <option value="sha256">SHA-256</option>
+                <option value="sha256WithRSAEncryption">SHA256WithRSAEncryption</option>
+                <option value="sha384">SHA-384</option>
+                <option value="sha384WithRSAEncryption">SHA384WithRSAEncryption</option>
+                <option value="sha512">SHA-512</option>
+                <option value="sha512WithRSAEncryption">SHA512WithRSAEncryption</option>
+                <option value="whirlpool">WHIRLPOOL</option>
+                <option value="blake2b512">BLAKE2B - 512</option>
+                <option value="blake2s256">BLAKE2S - 256</option>
+                <option value="ssl3-md5">SSL3-MD5</option>
+                <option value="ssl3-md5">SSL3-SHA1</option>
+                <option value="RSA-MD4">RSA-MD4</option>
+                <option value="RSA-MD5">RSA-MD5</option>
+                <option value="RSA-MDC2">RSA-MDC2</option>
+                <option value="RSA-RIPEMD160">RSA-RIPEMD160</option>
+                <option value="RSA-SHA1">RSA-SHA1</option>
+                <option value="RSA-SHA1-2">RSA-SHA1-2</option>
+                <option value="RSA-SHA224">RSA-SHA224</option>
+                <option value="RSA-SHA256">RSA-SHA256</option>
+                <option value="RSA-SHA384">RSA-SHA384</option>
+                <option value="RSA-SHA512">RSA-SHA512</option>
+                <option value="crc1">CRC-1</option>
+                <option value="crc8">CRC-8</option>
+                <option value="crc81wire">CRC-8/1-Wire</option>
+                <option value="crc16">CRC-16</option>
+                <option value="crc16ccitt">CRC-16/CCITT</option>
+                <option value="crc16modbus">CRC-16/MODBUS</option>
+                <option value="crc16kermit">CTC-16/KERMIT</option>
+                <option value="crc16xmodem">CRC-16/XMODEM</option>
+                <option value="crc24">CRC-24</option>
+                <option value="crc32">CRC-32</option>
+                <option value="crcjam">CRC-JAM</option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="message_digest_hmac"><script>document.getElementById('message_digest_hmac').innerText = Language.get('hmac')</script></label>
+        <div class="layui-input-inline" id="div_hash_hmac_key" style="width: auto">
+            <select name="hmac" lay-filter="hmac" class="select" lay-verify="type"
+                    id="hmac">
+                <option value="disabled" id="hmac_off"><script>document.getElementById('hmac_off').innerText = Language.get('off')</script></option>
+                <option value="enabled" id="hmac_on"><script>document.getElementById('hmac_on').innerText = Language.get('on')</script></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item" id="div_hmac_key" hidden>
+        <label class="layui-form-label" id="message_digest_hmac_key"><script>document.getElementById('message_digest_hmac_key').innerText = Language.get('hmac_key')</script></label>
+        <div class="layui-input-block" id="div_key" style="width: auto">
+            <input type="text" id="hmac_key" name="hmac_key" required placeholder=""
+                   autocomplete="off" class="layui-input layui-disabled" value="" disabled><script>document.getElementById("hmac_key").setAttribute("placeholder", Language.get("please_input_hmac"));document.getElementById("hmac_key").setAttribute("value", Language.get("hmac_is_disabled"))</script>
+        </div>
+
+        <!-- label class="layui-form-label" id="asymmetric_hmac_text"><script>document.getElementById("asymmetric_hmac_text").innerText = Language.get("hmac_text")</script></label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="abstract_hmac_type" lay-filter="" class="select" lay-verify="type">
+                <option value="utf8" id="message_digest_plain_hmac_utf8"><script>document.getElementById("message_digest_plain_hmac_utf8").innerText = Language.get("utf8")</script></option>
+                <option value="base64" id="message_digest_plain_hmac_base64"><script>document.getElementById("message_digest_plain_hmac_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="message_digest_plain_hmac_hex"><script>document.getElementById("message_digest_plain_hmac_hex").innerText = Language.get("hex")</script></option>
+            </select>
+        </div -->
+    </div>
+
+    <div class="layui-form-item" id="div_hmac_encode" hidden>
+        <label class="layui-form-label" id="asymmetric_hmac_text"><script>document.getElementById("asymmetric_hmac_text").innerText = Language.get("hmac_text")</script></label>
+        <div class="layui-input-block">
+            <input type="radio" name="abstract_hmac_type" value="utf8" title="UTF8 HMAC Key" checked>
+            <input type="radio" name="abstract_hmac_type" value="base64" title="Base64 HMAC Key">
+            <input type="radio" name="abstract_hmac_type" value="hex" title="Hexadecimal HMAC Key">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="asymmetric_plain_text"><script>document.getElementById("asymmetric_plain_text").innerText = Language.get("plain_text")</script></label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="abstract_plain_type" lay-filter="code_type" class="select" lay-verify="type" id="code_type">
+                <option value="utf8" id="message_digest_plain_encode_utf8"><script>document.getElementById("message_digest_plain_encode_utf8").innerText = Language.get("utf8")</script></option>
+                <option value="base64" id="message_digest_plain_encode_base64"><script>document.getElementById("message_digest_plain_encode_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="message_digest_plain_encode_hex"><script>document.getElementById("message_digest_plain_encode_hex").innerText = Language.get("hex")</script></option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="message_digest_output_text"><script>document.getElementById('message_digest_output_text').innerText = Language.get('output_text')</script></label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="abstract_code_type" lay-filter="abstract_code_type" class="select" lay-verify="type"
+                    id="abstract_code_type">
+                <option value="Hex" id="message_digest_hex"><script>document.getElementById('message_digest_hex').innerText = Language.get('hex')</script></option>
+                <option value="Base64" id="message_digest_base64"><script>document.getElementById('message_digest_base64').innerText = Language.get('base64')</script></option>
+                <option value="Both" id="message_digest_both"><script>document.getElementById('message_digest_both').innerText = Language.get('hex_and_base64')</script></option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" id="message_digest_plain_text"><script>document.getElementById('message_digest_plain_text').innerText = Language.get('plain_text')</script></label>
+        <div class="layui-input-block">
+            <textarea name="abstract_text" id="message_digest_text"
+                      placeholder="" class="layui-textarea"></textarea><script>document.getElementById("message_digest_text").setAttribute("placeholder", Language.get("please_input_hash"));</script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="abstract_do" id="message_digest_execute"><script>document.getElementById('message_digest_execute').innerText = Language.get('execute')</script></button>
+            <button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button>
+            <button type="reset" id="abstract_reset" class="layui-btn layui-btn-primary"><script>document.getElementById('abstract_reset').innerText = Language.get('reset')</script></button>
+        </div>
+    </div>
+</form>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend id="abstract_res"><script>document.getElementById('abstract_res').innerText = Language.get('result')</script></legend>
+    <div class="layui-field-box" id="abstract_result_box">
+        <blockquote class="layui-elem-quote layui-quote-nm" id="abstract_result" hidden></blockquote>
+    </div>
+</fieldset>
+
+</body>
+<div>
+    <div id="file_hashing" style="display:none">
+        <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="abstract_loading">
+            <div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+</html>

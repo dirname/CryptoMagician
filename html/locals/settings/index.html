@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/layui.css" media="all">
+    <script src="../../lib/read.js"></script>
+    <script src="settings.js"></script>
+</head>
+<script>
+    Language.init('../../locals/lang/');
+</script>
+<body>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="settings_title">
+        <script>document.getElementById("settings_title").innerText = Language.get("settings")</script>
+    </legend>
+</fieldset>
+
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="settings_shortcut_label">
+            <script>document.getElementById("settings_shortcut_label").innerText = Language.get("shortcut")</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" id="settings_shortcut" name="shortcut" style="text-align: center" placeholder="" autocomplete="off" class="layui-input">
+        </div><script>document.getElementById("settings_shortcut").setAttribute("placeholder", Language.get("default_shortcut"))</script>
+        <div class="layui-form-mid layui-word-aux" id="settings_short_tips"><script>document.getElementById("settings_short_tips").innerText = Language.get("shortcut_tips")</script></div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="settings_launch_label">
+            <script>document.getElementById("settings_launch_label").innerText = Language.get("launch")</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="checkbox" id="settings_auto_launch" name="auto_launch" lay-skin="primary">
+            <input type="checkbox" name="tray_launch" lay-skin="primary" id="settings_tray_launch">
+        </div>
+        <script>document.getElementById("settings_auto_launch").setAttribute("title",  Language.get("auto_launch_tips"));document.getElementById("settings_tray_launch").setAttribute("title",  Language.get("tray_launch_tips"))</script>
+
+    </div>
+    <hr class="layui-bg-gray">
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="settings_apply" id="settings_execute">
+                <script>document.getElementById('settings_execute').innerText = Language.get('apply')</script>
+            </button>
+            <button type="button" id="ecdh_generate" class="layui-btn layui-btn-warm">
+                <script>document.getElementById("ecdh_generate").innerText = Language.get("generate_key")</script>
+            </button>
+            <button type="button" id="settings_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('settings_reset').innerText = Language.get('cancel')</script>
+            </button>
+        </div>
+    </div>
+</form>
+</body>
+<script src="../layui.all.js" charset="utf-8"></script>
+<script>
+    !function () {
+        var $ = layui.jquery
+            , layer = layui.layer
+            , form = layui.form
+            , upload = layui.upload
+            , element = layui.element;
+
+        setEvent(form, $, upload, layer, element);
+        listen();
+    }();
+</script>
+</html>

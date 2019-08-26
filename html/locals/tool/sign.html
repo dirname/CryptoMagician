@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="keypair_sign_title">
+        <script>document.getElementById("keypair_sign_title").innerText = Language.get("sign_and_verify")</script>
+    </legend>
+</fieldset>
+<form class="layui-form" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="keypair_sign_algo">
+            <script>document.getElementById("keypair_sign_algo").innerText = Language.get("algorithm")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="keypair_sign_algorithm" lay-filter="keypair_sign_algorithm" lay-verify="required" lay-search>
+                <option value="" id="keypair_sign_algorithm_select">
+                    <script>document.getElementById('keypair_sign_algorithm_select').innerText = Language.get('algorithm_select')</script>
+                </option>
+                <option value="md4">MD4</option>
+                <option value="md4WithRSAEncryption">MD4WithRSAEncryption</option>
+                <option value="md5">MD5</option>
+                <option value="md5-sha1">MD5-SHA1</option>
+                <option value="md5WithRSAEncryption">MD5WithRSAEncryption</option>
+                <option value="mdc2">MDC2</option>
+                <option value="mdc2WithRSA">MDC2WithRSA</option>
+                <option value="ripemd">RIPEMD</option>
+                <option value="ripemd160">RIPEMD-160</option>
+                <option value="ripemd160WithRSA">RIPEMD160WithRSA</option>
+                <option value="rmd160">RMD-160</option>
+                <option value="sha1">SHA-1</option>
+                <option value="sha1WithRSAEncryption">SHA1WithRSAEncryption</option>
+                <option value="sha224">SHA-224</option>
+                <option value="sha224WithRSAEncryption">SHA224WithRSAEncryption</option>
+                <option value="sha256">SHA-256</option>
+                <option value="sha256WithRSAEncryption">SHA256WithRSAEncryption</option>
+                <option value="sha384">SHA-384</option>
+                <option value="sha384WithRSAEncryption">SHA384WithRSAEncryption</option>
+                <option value="sha512">SHA-512</option>
+                <option value="sha512WithRSAEncryption">SHA512WithRSAEncryption</option>
+                <option value="whirlpool">WHIRLPOOL</option>
+                <option value="blake2b512">BLAKE2B - 512</option>
+                <option value="blake2s256">BLAKE2S - 256</option>
+                <option value="ssl3-md5">SSL3-MD5</option>
+                <option value="ssl3-md5">SSL3-SHA1</option>
+                <option value="RSA-MD4">RSA-MD4</option>
+                <option value="RSA-MD5">RSA-MD5</option>
+                <option value="RSA-MDC2">RSA-MDC2</option>
+                <option value="RSA-RIPEMD160">RSA-RIPEMD160</option>
+                <option value="RSA-SHA1">RSA-SHA1</option>
+                <option value="RSA-SHA1-2">RSA-SHA1-2</option>
+                <option value="RSA-SHA224">RSA-SHA224</option>
+                <option value="RSA-SHA256">RSA-SHA256</option>
+                <option value="RSA-SHA384">RSA-SHA384</option>
+                <option value="RSA-SHA512">RSA-SHA512</option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="keypair_sign_operate">
+            <script>document.getElementById("keypair_sign_operate").innerText = Language.get("operate")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="keypair_sign_operate" lay-filter="keypair_sign_operate" lay-verify="required">
+                <option value="sign" id="keypair_sign_option">
+                    <script>document.getElementById('keypair_sign_option').innerText = Language.get('private_sign')</script>
+                </option>
+                <!-- option value="Dec" id="modulus_dec"><script>document.getElementById('modulus_dec').innerText = Language.get('dec')</script></option -->
+                <option value="verify" id="keypair_verify_option">
+                    <script>document.getElementById('keypair_verify_option').innerText = Language.get('public_verify')</script>
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="keypair_sign_padding">
+            <script>document.getElementById("keypair_sign_padding").innerText = Language.get("padding")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="keypair_padding" lay-filter="keypair_padding" lay-verify="required">
+                <option value="1">PKCS1_PADDING</option>
+                <option value="6">PKCS1_PSS_PADDING</option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="keypair_sign_salt">
+            <script>document.getElementById("keypair_sign_salt").innerText = Language.get("salt_length")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="keypair_salt_len" lay-filter="keypair_salt_len" lay-verify="required" id="keypair_salt_len"
+                    disabled>
+                <option value="-2">PSS_SALTLEN_AUTO</option>
+                <option value="-1">PSS_SALTLEN_DIGEST</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="layui-form-item" id="div_sign_private">
+        <label class="layui-form-label" id="keypair_sign_private_key">
+            <script>document.getElementById("keypair_sign_private_key").innerText = Language.get("private_key")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="sign_private_key" id="sign_private_key" lay-verify="check_private" placeholder=""
+                      autocomplete="off" class="layui-textarea"></textarea>
+            <script>document.getElementById("sign_private_key").setAttribute("placeholder", Language.get("please_input_private_key"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item" id="div_sign_passphrase">
+        <label class="layui-form-label" id="keypair_sign_private_passphrase">
+            <script>document.getElementById("keypair_sign_private_passphrase").innerText = Language.get("passphrase")</script>
+        </label>
+        <div class="layui-input-block">
+            <input type="text" id="sign_passphrase" name="sign_passphrase" lay-verify=""
+                   placeholder="" autocomplete="off"
+                   class="layui-input">
+            <script>document.getElementById("sign_passphrase").setAttribute("placeholder", Language.get("keypair_passphrase_tips"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item" id="div_sign_public" hidden>
+        <label class="layui-form-label" id="keypair_sign_public_key">
+            <script>document.getElementById("keypair_sign_public_key").innerText = Language.get("public_key")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="sign_public_key" id="sign_public_key" lay-verify="" placeholder="" autocomplete="off"
+                      class="layui-textarea"></textarea>
+            <script>document.getElementById("sign_public_key").setAttribute("placeholder", Language.get("please_input_public_key"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item" id="div_signature" hidden>
+        <label class="layui-form-label" id="keypair_sign_signature">
+            <script>document.getElementById("keypair_sign_signature").innerText = Language.get("signature")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="sign_signature" id="sign_signature" placeholder="" autocomplete="off"
+                      class="layui-textarea"></textarea>
+            <script>document.getElementById("sign_signature").setAttribute("placeholder", Language.get("please_input_signature"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+
+        <label class="layui-form-label" id="message_coding">
+            <script>document.getElementById("message_coding").innerText = Language.get("input_text")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="keypair_sign_in_coding" id="keypair_sign_in_coding" lay-filter="keypair_sign_in_coding">
+                <option value="utf8" id="sign_msg_encode_utf8">
+                    <script>document.getElementById("sign_msg_encode_utf8").innerText = Language.get("utf8")</script>
+                </option>
+                <option value="base64" id="sign_msg_encode_base64">
+                    <script>document.getElementById("sign_msg_encode_base64").innerText = Language.get("base64")</script>
+                </option>
+                <option value="hex" id="sign_msg_encode_hex">
+                    <script>document.getElementById("sign_msg_encode_hex").innerText = Language.get("hex")</script>
+                </option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="sign_cipher_text">
+            <script>document.getElementById("sign_cipher_text").innerText = Language.get("sign_text")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="keypair_sign_out_coding" id="keypair_sign_out_coding" lay-filter="keypair_sign_out_coding">
+                <option value="hex" id="sign_msg_cipher_hex">
+                    <script>document.getElementById("sign_msg_cipher_hex").innerText = Language.get("hex")</script>
+                </option>
+                <option value="base64" id="sign_msg_cipher_base64">
+                    <script>document.getElementById("sign_msg_cipher_base64").innerText = Language.get("base64")</script>
+                </option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="layui-form-item" id="div_sign_encode" hidden>
+        <label class="layui-form-label" id="keypair_sign_text"><script>document.getElementById("keypair_sign_text").innerText = Language.get("encoding")</script></label>
+        <div class="layui-input-block">
+            <input type="radio" name="keypair_sign_type" value="hex" title="Hexadecimal Signature" checked>
+            <input type="radio" name="keypair_sign_type" value="base64" title="Base64 Signature">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="keypair_sign_message">
+            <script>document.getElementById("keypair_sign_message").innerText = Language.get("message")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="sign_message" id="sign_message" placeholder="" autocomplete="off"
+                      class="layui-textarea"></textarea>
+            <script>document.getElementById("sign_message").setAttribute("placeholder", Language.get("please_input_message"))</script>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="sign_keypair_do" id="sign_keypair_execute">
+                <script>document.getElementById('sign_keypair_execute').innerText = Language.get('execute')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="sign_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('sign_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<fieldset class="layui-elem-field layui-field-title">
+    <legend id="sign_res">
+        <script>document.getElementById('sign_res').innerText = Language.get('result')</script>
+    </legend>
+    <div class="layui-field-box" id="sign_result_box">
+        <blockquote class="layui-elem-quote layui-quote-nm" id="sign_result" hidden>
+        </blockquote>
+    </div>
+</fieldset>
+
+</body>
+<div>
+    <div id="signing_keypair" style="display:none">
+        <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="keypair_sign_loading">
+            <div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+        </div>
+    </div>
+</div>
+
+</html>

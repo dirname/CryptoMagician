@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="layui.all.js" charset="utf-8"></script>
+    <script src="element.js"></script>
+    <script>
+
+        !function () {
+            var $ = layui.jquery
+                , layer = layui.layer
+                , form = layui.form
+                , upload = layui.upload
+                , element = layui.element
+                , date = layui.laydate;
+
+            $("#Block_ciphers").attr("label", Language.get("block_ciphers"));
+            $("#stream_ciphers").attr("label", Language.get("stream_ciphers"));
+            form.render('select');
+            setEvent(form, $, upload, layer, element, date);
+            listen();
+        }();
+    </script>
+</head>
+<body>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="encoding_title">
+        <script>document.getElementById("encoding_title").innerText = Language.get("encoding_converter")</script>
+    </legend>
+</fieldset>
+
+<blockquote class="layui-elem-quote" id="support_encoding">
+    <br><br>
+    <button onclick="openEncoding()" lay-submit="" lay-filter="open_encoding_tools_button"
+            class="layui-btn layui-btn-warm" id="open_encoding_tools_button"></button>
+</blockquote>
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="time_stamp_title">
+        <script>document.getElementById("time_stamp_title").innerText = Language.get("time_stamp")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="time_stamp_label">
+            <script>document.getElementById('time_stamp_label').innerText = Language.get('time_stamp')</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" id="timestamp" name="timestamp" placeholder=""
+                   autocomplete="off"
+                   class="layui-input">
+            <script>document.getElementById("timestamp").setAttribute("placeholder", Language.get("please_input_time_stamp"))</script>
+        </div>
+
+        <label class="layui-form-label" id="data_time_label">
+            <script>document.getElementById('data_time_label').innerText = Language.get('date_time')</script>
+        </label>
+        <div class="layui-input-inline"> <!-- 注意：这一层元素并不是必须的 -->
+            <input type="text" class="layui-input" id="date_select" name="datetime" placeholder="yyyy-MM-dd HH:mm:ss">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="stamp_do" id="stamp_execute">
+                <script>document.getElementById('stamp_execute').innerText = Language.get('to_stamp')</script>
+            </button>
+            <button class="layui-btn" lay-submit="" lay-filter="date_do" id="date_execute">
+                <script>document.getElementById('date_execute').innerText = Language.get('to_date')</script>
+            </button>
+            <button class="layui-btn" lay-submit="" lay-filter="now_stamp" id="now_stamp">
+                <script>document.getElementById('now_stamp').innerText = Language.get('get_now_stamp')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="date_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('date_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+</form>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="rand_bytes_title">
+        <script>document.getElementById("rand_bytes_title").innerText = Language.get("random_bytes")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="random_size">
+            <script>document.getElementById('random_size').innerText = Language.get('bytes_size')</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="number" id="random_bytes_size" name="random_size" placeholder="" autocomplete="off"
+                   class="layui-input">
+            <script>document.getElementById('random_bytes_size').setAttribute("placeholder", Language.get('random_tips'))</script>
+        </div>
+
+        <label class="layui-form-label" id="random_bytes_output">
+            <script>document.getElementById('random_bytes_output').innerText = Language.get('output_text')</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="random_out_type" lay-filter="random_out_type" class="select" lay-verify="type"
+                    id="random_out_type">
+                <option value="Hex" id="random_out_hex">
+                    <script>document.getElementById('random_out_hex').innerText = Language.get('hex')</script>
+                </option>
+                <option value="Base64" id="random_out_base64">
+                    <script>document.getElementById('random_out_base64').innerText = Language.get('base64')</script>
+                </option>
+                <option value="Utf8" id="random_out_utf8">
+                    <script>document.getElementById('random_out_utf8').innerText = Language.get('utf8')</script>
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+
+        <label class="layui-form-label" id="random_bytes_result"> <script>document.getElementById('random_bytes_result').innerText = Language.get('result')</script></label>
+        <div class="layui-input-block">
+            <textarea readonly class="layui-textarea" id="random_text_result" placeholder=""></textarea>
+        </div>
+        <script>document.getElementById("random_text_result").setAttribute("placeholder", Language.get("no_result"))</script>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="random_do" id="random_execute">
+                <script>document.getElementById('random_execute').innerText = Language.get('generate')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="random_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('random_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+
+<script>
+    document.getElementById("support_encoding").innerHTML = Language.get("encoding_wiki") + document.getElementById("support_encoding").innerHTML;
+    document.getElementById('open_encoding_tools_button').innerText = Language.get('encoding_tools');
+    layui.laydate.render({
+        elem: '#date_select' //指定元素
+        , type: 'datetime',
+        format: 'yyyy-MM-dd HH:mm:ss',
+        lang: "en"
+    });
+    layui.carousel.render({
+        elem: '#test1'
+        ,width: '100%' //设置容器宽度
+        ,arrow: 'always' //始终显示箭头
+        //,anim: 'updown' //切换动画方式
+    });
+</script>
+
+</body>
+</html>

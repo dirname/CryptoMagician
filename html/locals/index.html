@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/layui.css" media="all">
+    <script src="layui.js" charset="utf-8"></script>
+    <script src="../lib/read.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<script>
+    Language.init('../locals/lang/');
+    layui.use('jquery', function(){
+        var $ = layui.jquery;
+
+        $('.site-demo-active').on('click', function(){
+            var othis = $(this), type = othis.data('type');
+            active[type] ? active[type].call(this, othis) : '';
+        });
+    });
+</script>
+<div class="layui-tab layui-tab-brief">
+    <ul class="layui-tab-title">
+        <li class="layui-this"><script>document.write(Language.get("started"))</script></li>
+        <li><script>document.write(Language.get("message_digest_algorithm"))</script></li>
+        <li><script>document.write(Language.get("symmetric_algorithm"))</script></li>
+        <li><script>document.write(Language.get("asymmetric_algorithm"))</script></li>
+        <li><script>document.write(Language.get("hash_extension"))</script></li>
+        <li><script>document.write(Language.get("radix_calculation"))</script></li>
+        <li><script>document.write(Language.get("more"))</script></li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show" id="home">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#home").load("home.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="abstract_page">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#abstract_page").load("abstract.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="symmetric_page">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#symmetric_page").load("symmetric.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="asymmetric_page">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#asymmetric_page").load("asymmetric.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="hash_page">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#hash_page").load("hash.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="radix_page">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#radix_page").load("radix.html");
+                });
+            </script>
+        </div>
+        <div class="layui-tab-item" id="other_page">
+            <script>
+                layui.use('jquery', function () {
+                    var $ = layui.jquery;
+                    $("#other_page").load("other.html");
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+</body>
+</html>

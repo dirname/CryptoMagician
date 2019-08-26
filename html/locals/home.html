@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="css/layui.css" media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend id="home_app_name"><script>document.getElementById("home_app_name").innerText = Language.get("app") + " - GitHub@dirname"</script></legend>
+</fieldset>
+<!-- 条目中可以是任意内容，如：<img src=""> -->
+
+<div style="padding: 20px; background-color: #F2F2F2;">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header" id="card_lib_home"><script>document.getElementById("card_lib_home").innerText = Language.get("library")</script></div>
+        <div class="layui-card-body" id="build_info">
+          <script>
+            const info = Language.get("we_are_using_nodejs") + " " + process.versions.node + Language.get("_chromium") + " " + process.versions.chrome + Language.get("_electron") + " " + process.versions.electron + Language.get("_layui");
+            document.getElementById("build_info").innerHTML = info;
+          </script>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header" id="home_about_remark_card"><script>document.getElementById("home_about_remark_card").innerText = Language.get("about_remarks")</script></div>
+        <div class="layui-card-body" id="about_info">
+          <script>
+            const info = "<b>" +  Language.get("about_info") + " <a href='https://github.com/dirname/CryptoMagician' target='_blank'>GitHub.</a>" + " " + Language.get("about_project");
+            document.getElementById("about_info").innerHTML = info;
+          </script>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+  <legend id="support_algorithm_title_home"><script>document.getElementById("support_algorithm_title_home").innerText = Language.get("support_algorithm_abstract")</script></legend>
+</fieldset>
+<div class="layui-collapse">
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title" id="message_title_home"><script>document.getElementById("message_title_home").innerText = Language.get("message_digest_algorithm")</script></h2>
+    <div class="layui-colla-content">
+      <div class="layui-collapse">
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title" id="message_title_h2"><script>document.getElementById("message_title_h2").innerText = Language.get("support_hash")</script></h2>
+          <div class="layui-colla-content">
+            <table class="layui-table" lay-even="" lay-skin="row" align="center">
+              <colgroup>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th id="th_hash"><script>document.getElementById("th_hash").innerText = Language.get("hash_name")</script></th>
+                <th id="th_hex_length"><script>document.getElementById("th_hex_length").innerText = Language.get("hex_len")</script></th>
+                <th id="th_hmac_support"><script>document.getElementById("th_hmac_support").innerText = Language.get("hmac_support")</script></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>RSA-MD4</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-MD5</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-MDC2</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-RIPEMD160</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA1</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA1-2</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA224</td>
+                <td><i class="layui-icon">56 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA256</td>
+                <td><i class="layui-icon">64 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA384</td>
+                <td><i class="layui-icon">96 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA512</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>BLAKE2B512</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>BLAKE2S256</td>
+                <td><i class="layui-icon">64 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD4</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD4WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD5</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD5-SHA1</td>
+                <td><i class="layui-icon">72 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD5WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MDC2</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MDC2WITHRSA</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RIPEMD</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RIPEMD160</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RIPEMD160WITHRSA</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RMD160</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA1</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA1WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA224</td>
+                <td><i class="layui-icon">56 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA224WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">56 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA256</td>
+                <td><i class="layui-icon">64 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA256WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">64 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA384</td>
+                <td><i class="layui-icon">96 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA384WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">96 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA512</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA512WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SSL3-MD5</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SSL3-SHA1</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>WHIRLPOOL</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-1</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-8</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-8/1-Wire</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-16</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-16/CCITT</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-16/MODBUS</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CTC-16/KERMIT</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-16/XMODEM</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-24</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-32</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-JAM</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title" id="symmetric_title_home"><script>document.getElementById("symmetric_title_home").innerText = Language.get("symmetric_algorithm")</script></h2>
+    <div class="layui-colla-content">
+      <div class="layui-collapse">
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title" id="symmetric_title_h2"><script>document.getElementById("symmetric_title_h2").innerText = Language.get("support_hash")</script></h2>
+          <div class="layui-colla-content">
+            <table class="layui-table" lay-even="" lay-skin="row" align="center">
+              <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th id="symmetric_cipher_name"><script>document.getElementById("symmetric_cipher_name").innerText = Language.get("cipher_name")</script></th>
+                <th id="symmetric_block_size"><script>document.getElementById("symmetric_block_size").innerText = Language.get("block_size")</script></th>
+                <th id="symmetric_iv_size"><script>document.getElementById("symmetric_iv_size").innerText = Language.get("iv_size")</script></th>
+                <th id="symmetric_key_size"><script>document.getElementById("symmetric_key_size").innerText = Language.get("key_size")</script></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>3DES</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>24 bytes</td>
+              </tr>
+              <tr>
+                <td>AES</td>
+                <td>128 bits</td>
+                <td>16 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>DES</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>8 bytes</td>
+              </tr>
+              <tr>
+                <td>Blowfish</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>56 bytes</td>
+              </tr>
+              <tr>
+                <td>Blowfish-Compat</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>56 bytes</td>
+              </tr>
+              <tr>
+                <td>IDEA</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>16 bytes</td>
+              </tr>
+              <tr>
+                <td>RC2</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>1 - 128 bytes</td>
+              </tr>
+              <tr>
+                <td>SEED</td>
+                <td>128 bits</td>
+                <td>16 bytes</td>
+                <td>16 bytes</td>
+              </tr>
+              <tr>
+                <td>CAST</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>16 bytes</td>
+              </tr>
+              <tr>
+                <td>CAST-128 (CAST5)</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>16 bytes</td>
+              </tr>
+              <tr>
+                <td>CAST-256</td>
+                <td>128 bits</td>
+                <td>16 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>CAMELLIA</td>
+                <td>128 bits</td>
+                <td>16 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>RIJNDAEL-128</td>
+                <td>128 bits</td>
+                <td>16 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>RIJNDAEL-192</td>
+                <td>192 bits</td>
+                <td>24 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>RIJNDAEL-256</td>
+                <td>256 bits</td>
+                <td>32 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>GOST</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>32 bytes</td>
+              </tr>
+              <tr>
+                <td>Twofish</td>
+                <td>128 bits</td>
+                <td>16 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>SERPENT</td>
+                <td>128 bits</td>
+                <td>16 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>LOKI97</td>
+                <td>128 bits</td>
+                <td>16 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>SAFER</td>
+                <td>64 bits</td>
+                <td>16 bytes</td>
+                <td>8 16 bytes</td>
+              </tr>
+              <tr>
+                <td>SAFER+</td>
+                <td>64 bits</td>
+                <td>16 bytes</td>
+                <td>16 24 32 bytes</td>
+              </tr>
+              <tr>
+                <td>XTEA</td>
+                <td>64 bits</td>
+                <td>8 bytes</td>
+                <td>16 bytes</td>
+              </tr>
+              <tr>
+                <td>3-WAY</td>
+                <td>96 bits</td>
+                <td>8 bytes</td>
+                <td>12 bytes</td>
+              </tr>
+              <tr>
+                <td>RC4</td>
+                <td>1 bits</td>
+                <td>Stream</td>
+                <td>Over 0 (5 - 256) bytes</td>
+              </tr>
+              <tr>
+                <td>RC4 Drop</td>
+                <td>1 bits</td>
+                <td>Stream</td>
+                <td>Over 0 (5 - 256) bytes</td>
+              </tr>
+              <tr>
+                <td>Rabbit</td>
+                <td>1 bits</td>
+                <td>Over 0 (8) bytes</td>
+                <td>Over 0 (16) bytes</td>
+              </tr>
+              <tr>
+                <td>Rabbit Legacy</td>
+                <td>1 bits</td>
+                <td>Over 0 (8) bytes</td>
+                <td>Over 0 (16) bytes</td>
+              </tr>
+              <tr>
+                <td>CHACHA20</td>
+                <td>1 bits</td>
+                <td>16 bytes</td>
+                <td>32 bytes</td>
+              </tr>
+              <tr>
+                <td>CHACHA20 POLY1305</td>
+                <td>1 bits</td>
+                <td>12 bytes</td>
+                <td>32 bytes</td>
+              </tr>
+              <tr>
+                <td>WAKE</td>
+                <td>1 bits</td>
+                <td>Stream</td>
+                <td>32 bytes</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title" id="symmetric_title_h2_block"><script>document.getElementById("symmetric_title_h2_block").innerText = Language.get("support_block_cipher")</script></h2>
+          <div class="layui-colla-content">
+            <table class="layui-table" lay-even="" lay-skin="row" align="center">
+              <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th id="th_cipher_name"><script>document.getElementById("th_cipher_name").innerText = Language.get("cipher_name")</script></th>
+                <th>ECB</th>
+                <th>CBC</th>
+                <th>OFB</th>
+                <th>CFB</th>
+                <th>CTR</th>
+                <th>CTRGladman</th>
+                <th>No Mode (Stream)</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>3DES</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>AES</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>DES</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>BLOWFISH</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>BLOWFISH-COMPAT</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>IDEA</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>RC2</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>SEED</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CAST</td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CAST-128</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CAST-256</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CAMELLIA</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>RIJNDAEL-128</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>RIJNDAEL-192</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>RIJNDAEL-256</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>GOST</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>TWOFISH</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>SERPENT</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>LOKI97</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>SAFER</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>SAFER+</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>XTEA</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>3-WAY</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>RC4</td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RC4 Drop</td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>Rabbit</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>Rabbit Legacy</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>CHACHA20</td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>CHACHA20-POLY1305</td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>WAKE</td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title" id="asymmetric_title_home"><script>document.getElementById("asymmetric_title_home").innerText = Language.get("asymmetric_algorithm")</script></h2>
+    <div class="layui-colla-content">
+      <div class="layui-collapse">
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title" id="rsa_title_home"><script>document.getElementById("rsa_title_home").innerText = Language.get("rsa_abstract_table")</script></h2>
+          <div class="layui-colla-content">
+            <table class="layui-table" lay-even="" lay-skin="row" align="center">
+              <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th id="rsa_cipher_name"><script>document.getElementById("rsa_cipher_name").innerText = Language.get("cipher_name")</script></th>
+                <th id="rsa_private_encryption"><script>document.getElementById("rsa_private_encryption").innerText = Language.get("private_key_encrypt")</script></th>
+                <th id="rsa_public_encryption"><script>document.getElementById("rsa_public_encryption").innerText = Language.get("public_key_encrypt")</script></th>
+                <th id="rsa_private_decryption"><script>document.getElementById("rsa_private_decryption").innerText = Language.get("private_key_decrypt")</script></th>
+                <th id="rsa_public_decryption"><script>document.getElementById("rsa_public_decryption").innerText = Language.get("public_key_decrypt")</script></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>RSA</td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- div class="layui-collapse">
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title" id="keypair_title_home"><script>document.getElementById("keypair_title_home").innerText = Language.get("keypair_")</script></h2>
+    <div class="layui-colla-content">
+      <div class="layui-collapse">
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title" id="message_title_h2"><script>document.getElementById("message_title_h2").innerText = Language.get("support_hash")</script></h2>
+          <div class="layui-colla-content">
+            <table class="layui-table" lay-even="" lay-skin="row" align="center">
+              <colgroup>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th id="th_hash"><script>document.getElementById("th_hash").innerText = Language.get("hash_name")</script></th>
+                <th id="th_hex_length"><script>document.getElementById("th_hex_length").innerText = Language.get("hex_len")</script></th>
+                <th id="th_hmac_support"><script>document.getElementById("th_hmac_support").innerText = Language.get("hmac_support")</script></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>RSA-MD4</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-MD5</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-MDC2</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-RIPEMD160</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA1</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA1-2</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA224</td>
+                <td><i class="layui-icon">56 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA256</td>
+                <td><i class="layui-icon">64 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA384</td>
+                <td><i class="layui-icon">96 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RSA-SHA512</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>BLAKE2B512</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>BLAKE2S256</td>
+                <td><i class="layui-icon">64 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD4</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD4WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD5</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD5-SHA1</td>
+                <td><i class="layui-icon">72 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MD5WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MDC2</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>MDC2WITHRSA</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RIPEMD</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RIPEMD160</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RIPEMD160WITHRSA</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>RMD160</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA1</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA1WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA224</td>
+                <td><i class="layui-icon">56 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA224WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">56 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA256</td>
+                <td><i class="layui-icon">64 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA256WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">64 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA384</td>
+                <td><i class="layui-icon">96 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA384WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">96 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA512</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SHA512WITHRSAENCRYPTION</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SSL3-MD5</td>
+                <td><i class="layui-icon">32 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>SSL3-SHA1</td>
+                <td><i class="layui-icon">40 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>WHIRLPOOL</td>
+                <td><i class="layui-icon">128 Bytes</i></td>
+                <td><i class="layui-icon">&#xe605;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-1</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-8</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-8/1-Wire</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-16</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-16/CCITT</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-16/MODBUS</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CTC-16/KERMIT</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-16/XMODEM</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-24</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-32</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              <tr>
+                <td>CRC-JAM</td>
+                <td><i class="layui-icon">-</i></td>
+                <td><i class="layui-icon">&#x1006;</i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div -->
+
+</body>
+</html>

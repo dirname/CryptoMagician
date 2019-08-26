@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="radix_convert_title">
+        <script>document.getElementById("radix_convert_title").innerText = Language.get("radix_convert")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="radix_convert_input_label"><script>document.getElementById("radix_convert_input_label").innerText = Language.get("plain_radix")</script></label>
+        <div class="layui-input-block">
+            <input type="text" id="radix_convert_input" name="radix_convert_input" placeholder=""
+                   autocomplete="off" lay-verify="check_plain_radix"
+                   class="layui-input"><script>document.getElementById("radix_convert_input").setAttribute("placeholder", Language.get("please_input_plain_radix"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="radix_convert_out_label"><script>document.getElementById("radix_convert_out_label").innerText = Language.get("out_radix")</script></label>
+        <div class="layui-input-block">
+            <input type="text" id="radix_convert_out" name="radix_convert_out" placeholder=""
+                   autocomplete="off" lay-verify="check_out_radix"
+                   class="layui-input"><script>document.getElementById("radix_convert_out").setAttribute("placeholder", Language.get("please_input_out_radix"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" id="radix_convert_data_label"><script>document.getElementById('radix_convert_data_label').innerText = Language.get('data')</script></label>
+        <div class="layui-input-block">
+            <textarea name="radix_convert_data" id="radix_convert_data" lay-verify="check_data"
+                      placeholder="" class="layui-textarea"></textarea><script>document.getElementById("radix_convert_data").setAttribute("placeholder", Language.get("please_input_data"));</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="radix_convert_do" id="radix_convert_execute">
+                <script>document.getElementById('radix_convert_execute').innerText = Language.get('convert')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="radix_convert_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('radix_convert_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="radix_calculation_title">
+        <script>document.getElementById("radix_calculation_title").innerText = Language.get("calculation")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="radix_calculation_input_label"><script>document.getElementById("radix_calculation_input_label").innerText = Language.get("plain_radix")</script></label>
+        <div class="layui-input-block">
+            <input type="text" id="radix_calculation_input" name="radix_calculation_input" placeholder=""
+                   autocomplete="off" lay-verify="check_plain_radix"
+                   class="layui-input"><script>document.getElementById("radix_calculation_input").setAttribute("placeholder", Language.get("please_input_plain_radix"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="radix_calculation_out_label"><script>document.getElementById("radix_calculation_out_label").innerText = Language.get("out_radix")</script></label>
+        <div class="layui-input-block">
+            <input type="text" id="radix_calculation_out" name="radix_calculation_out" placeholder=""
+                   autocomplete="off" lay-verify="check_out_radix"
+                   class="layui-input"><script>document.getElementById("radix_calculation_out").setAttribute("placeholder", Language.get("please_input_out_radix"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="radix_calculation"><script>document.getElementById("radix_calculation").innerText = Language.get("operate")</script></label>
+        <div class="layui-input-block">
+            <input type="radio" name="radix_calculation_operate" value="&" id="and_calculation" title="" checked><script>document.getElementById("and_calculation").setAttribute("title", Language.get("and"))</script>
+            <input type="radio" name="radix_calculation_operate" value="|" id="or_calculation" title=""><script>document.getElementById("or_calculation").setAttribute("title", Language.get("or"))</script>
+            <input type="radio" name="radix_calculation_operate" value="^" id="xor_calculation" title=""><script>document.getElementById("xor_calculation").setAttribute("title", Language.get("xor"))</script>
+            <input type="radio" name="radix_calculation_operate" value="~" id="not_calculation" title=""><script>document.getElementById("not_calculation").setAttribute("title", Language.get("not"))</script>
+            <input type="radio" name="radix_calculation_operate" value="<<" id="shl_calculation" title=""><script>document.getElementById("shl_calculation").setAttribute("title", Language.get("shl"))</script>
+            <input type="radio" name="radix_calculation_operate" value=">>" id="shr_calculation" title=""><script>document.getElementById("shr_calculation").setAttribute("title", Language.get("shr"))</script>
+            <input type="radio" name="radix_calculation_operate" value=">>>" id=">>>_calculation" title=""><script>document.getElementById(">>>_calculation").setAttribute("title", Language.get(">>>"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="radix_calculation_param_one_label"><script>document.getElementById("radix_calculation_param_one_label").innerText = Language.get("param_one")</script></label>
+        <div class="layui-input-block">
+            <input type="text" id="radix_param_one" name="radix_param_one" placeholder=""
+                   autocomplete="off" lay-verify="check_param"
+                   class="layui-input"><script>document.getElementById("radix_param_one").setAttribute("placeholder", Language.get("please_input_param"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="radix_calculation_param_two_label"><script>document.getElementById("radix_calculation_param_two_label").innerText = Language.get("param_two")</script></label>
+        <div class="layui-input-block">
+            <input type="text" id="radix_param_two" name="radix_param_two" placeholder=""
+                   autocomplete="off" lay-verify="check_param"
+                   class="layui-input"><script>document.getElementById("radix_param_two").setAttribute("placeholder", Language.get("please_input_param"))</script>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="radix_calculation_do" id="radix_calculation_execute">
+                <script>document.getElementById('radix_calculation_execute').innerText = Language.get('calculate')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="radix_calculation_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('radix_calculation_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+
+
+</form>
+
+
+<fieldset class="layui-elem-field layui-field-title">
+    <legend id="radix_res">
+        <script>document.getElementById('radix_res').innerText = Language.get('result')</script>
+    </legend>
+    <div class="layui-field-box" id="radix_result_box">
+        <blockquote class="layui-elem-quote layui-quote-nm" id="radix_result" hidden>
+        </blockquote>
+    </div>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="hash_pbkdf_title">
+        <script>document.getElementById("hash_pbkdf_title").innerText = Language.get("pbkdf2")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="hash_digest_algorithm"><script>document.getElementById("hash_digest_algorithm").innerText = Language.get("algorithm")</script></label>
+        <div class="layui-input-inline" id="hash_div_algorithm" style="width: auto">
+            <select name="pbkdf_algorithm" lay-filter="pbkdf_algorithm" lay-verify="required" lay-search>
+                <option value="" id="hash_digest_select"><script>document.getElementById('hash_digest_select').innerText = Language.get('algorithm_select')</script></option>
+                <option value="md4">MD4</option>
+                <option value="md4WithRSAEncryption">MD4WithRSAEncryption</option>
+                <option value="md5">MD5</option>
+                <option value="md5-sha1">MD5-SHA1</option>
+                <option value="md5WithRSAEncryption">MD5WithRSAEncryption</option>
+                <option value="mdc2">MDC2</option>
+                <option value="mdc2WithRSA">MDC2WithRSA</option>
+                <option value="ripemd">RIPEMD</option>
+                <option value="ripemd160">RIPEMD-160</option>
+                <option value="ripemd160WithRSA">RIPEMD160WithRSA</option>
+                <option value="rmd160">RMD-160</option>
+                <option value="sha1">SHA-1</option>
+                <option value="sha1WithRSAEncryption">SHA1WithRSAEncryption</option>
+                <option value="sha224">SHA-224</option>
+                <option value="sha224WithRSAEncryption">SHA224WithRSAEncryption</option>
+                <option value="sha256">SHA-256</option>
+                <option value="sha256WithRSAEncryption">SHA256WithRSAEncryption</option>
+                <option value="sha384">SHA-384</option>
+                <option value="sha384WithRSAEncryption">SHA384WithRSAEncryption</option>
+                <option value="sha512">SHA-512</option>
+                <option value="sha512WithRSAEncryption">SHA512WithRSAEncryption</option>
+                <option value="whirlpool">WHIRLPOOL</option>
+                <option value="blake2b512">BLAKE2B - 512</option>
+                <option value="blake2s256">BLAKE2S - 256</option>
+                <option value="ssl3-md5">SSL3-MD5</option>
+                <option value="ssl3-md5">SSL3-SHA1</option>
+                <option value="RSA-MD4">RSA-MD4</option>
+                <option value="RSA-MD5">RSA-MD5</option>
+                <option value="RSA-MDC2">RSA-MDC2</option>
+                <option value="RSA-RIPEMD160">RSA-RIPEMD160</option>
+                <option value="RSA-SHA1">RSA-SHA1</option>
+                <option value="RSA-SHA1-2">RSA-SHA1-2</option>
+                <option value="RSA-SHA224">RSA-SHA224</option>
+                <option value="RSA-SHA256">RSA-SHA256</option>
+                <option value="RSA-SHA384">RSA-SHA384</option>
+                <option value="RSA-SHA512">RSA-SHA512</option>
+            </select>
+        </div>
+
+
+
+        <label class="layui-form-label" id="hash_key_len">
+            <script>document.getElementById("hash_key_len").innerText = Language.get("key_len")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <input type="number" id="hash_key_length" name="pbkdf_key_len" lay-verify="check_key_len" placeholder=""
+                   autocomplete="off" class="layui-input">
+            <script>document.getElementById("hash_key_length").setAttribute("placeholder", Language.get("key_len_tips"));</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="hash_salt_encode"><script>document.getElementById("hash_salt_encode").innerText = Language.get("salt_encoding")</script></label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="pbkdf_salt_type" lay-filter="pbkdf_salt_type" class="select" lay-verify="type">
+                <option value="utf8" id="pbkdf_salt_encode_utf8"><script>document.getElementById("pbkdf_salt_encode_utf8").innerText = Language.get("utf8")</script></option>
+                <option value="base64" id="pbkdf_salt_encode_base64"><script>document.getElementById("pbkdf_salt_encode_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="pbkdf_salt_encode_hex"><script>document.getElementById("pbkdf_salt_encode_hex").innerText = Language.get("hex")</script></option>
+            </select>
+        </div>
+
+
+        <label class="layui-form-label" id="label_hash_iterations">
+            <script>document.getElementById('label_hash_iterations').innerText = Language.get('iterations')</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <input type="number" id="pbkdf_iterations" name="pbkdf_iterations" placeholder="" autocomplete="off"
+                   class="layui-input" lay-verify="check_iterations">
+            <script>document.getElementById('pbkdf_iterations').setAttribute("placeholder", Language.get('iterations_tips'))</script>
+        </div>
+
+
+
+    </div>
+
+    <div class="layui-form-item">
+            <label class="layui-form-label" id="hash_salt_label"><script>document.getElementById("hash_salt_label").innerText = Language.get("salt")</script></label>
+            <div class="layui-input-block">
+                <input type="text" id="pbkdf_salt" name="pbkdf_salt" placeholder=""
+                       autocomplete="off"
+                       class="layui-input"><script>document.getElementById("pbkdf_salt").setAttribute("placeholder", Language.get("please_input_salt"))</script>
+            </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="hash_plain_text"><script>document.getElementById("hash_plain_text").innerText = Language.get("password")</script></label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="pbkdf_password_type" lay-filter="pbkdf_password_type" class="select" lay-verify="type" id="code_type">
+                <option value="utf8" id="hash_password_encode_utf8"><script>document.getElementById("hash_password_encode_utf8").innerText = Language.get("utf8")</script></option>
+                <option value="base64" id="hash_password_encode_base64"><script>document.getElementById("hash_password_encode_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="hash_password_encode_hex"><script>document.getElementById("hash_password_encode_hex").innerText = Language.get("hex")</script></option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="hash_cipher_text"><script>document.getElementById("hash_cipher_text").innerText = Language.get("output_text")</script></label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="pbkdf_out_text" lay-filter="pbkdf_out_text" class="select" lay-verify="type"
+                    id="pbkdf_out_text">
+                <option value="base64" id="hash_result_base64"><script>document.getElementById("hash_result_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="hash_result_hex"><script>document.getElementById("hash_result_hex").innerText = Language.get("hex")</script></option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" id="hash_password_text"><script>document.getElementById('hash_password_text').innerText = Language.get('password')</script></label>
+        <div class="layui-input-block">
+            <textarea name="pbkdf_password" id="pbkdf_password"
+                      placeholder="" class="layui-textarea"></textarea><script>document.getElementById("pbkdf_password").setAttribute("placeholder", Language.get("please_input_password"));</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="pbkdf_do" id="pbkdf_execute">
+                <script>document.getElementById('pbkdf_execute').innerText = Language.get('execute')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="pbkdf_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('pbkdf_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="hash_scrypt_title">
+        <script>document.getElementById("hash_scrypt_title").innerText = Language.get("scrypt")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="label_scrypt_cost">
+            <script>document.getElementById('label_scrypt_cost').innerText = Language.get('cost')</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="number" id="scrypt_cost" name="scrypt_cost" placeholder="" autocomplete="off"
+                   class="layui-input">
+            <script>document.getElementById('scrypt_cost').setAttribute("placeholder", Language.get('cost_tips'))</script>
+        </div>
+
+        <label class="layui-form-label" id="label_scrypt_block">
+            <script>document.getElementById('label_scrypt_block').innerText = Language.get('block_size')</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="number" id="scrypt_block" name="scrypt_block" placeholder="" autocomplete="off"
+                   class="layui-input">
+            <script>document.getElementById('scrypt_block').setAttribute("placeholder", Language.get('block_tips'))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="label_scrypt_parallel">
+            <script>document.getElementById('label_scrypt_parallel').innerText = Language.get('parallelization')</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="number" id="scrypt_parallel" name="scrypt_parallel" placeholder="" autocomplete="off"
+                   class="layui-input">
+            <script>document.getElementById('scrypt_parallel').setAttribute("placeholder", Language.get('parallelization_tips'))</script>
+        </div>
+
+        <label class="layui-form-label" id="label_scrypt_operate">
+            <script>document.getElementById('label_scrypt_operate').innerText = Language.get('operate')</script>
+        </label>
+        <div class="layui-input-inline" hidden>
+            <select name="scrypt_operate" lay-filter="scrypt_operate" class="select" lay-verify="type">
+                <option value="hash" id="scrypt_hash"><script>document.getElementById("scrypt_hash").innerText = Language.get("hash_synchronous")</script></option>
+                <option value="kdf" id="scrypt_kdf"><script>document.getElementById("scrypt_kdf").innerText = Language.get("kdf_synchronous")</script></option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="scrypt_key_len_label">
+            <script>document.getElementById('scrypt_key_len_label').innerText = Language.get('key_len')</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="number" id="scrypt_key_len" name="scrypt_key_len" placeholder="" autocomplete="off"
+                   class="layui-input" lay-verify="check_key_len">
+            <script>document.getElementById('scrypt_key_len').setAttribute("placeholder", Language.get('key_len_tips'))</script>
+        </div>
+
+
+        <label class="layui-form-label" id="crypt_salt_encode_label"><script>document.getElementById("crypt_salt_encode_label").innerText = Language.get("salt_encoding")</script></label>
+        <div class="layui-input-inline">
+            <select name="scrypt_salt_type" lay-filter="scrypt_salt_type" class="select" lay-verify="type" id="scrypt_salt_type_select">
+                <option value="utf8" id="scrypt_salt_encode_utf8"><script>document.getElementById("scrypt_salt_encode_utf8").innerText = Language.get("utf8")</script></option>
+                <option value="base64" id="scrypt_salt_encode_base64"><script>document.getElementById("scrypt_salt_encode_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="scrypt_salt_encode_hex"><script>document.getElementById("scrypt_salt_encode_hex").innerText = Language.get("hex")</script></option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="scrypt_salt_label"><script>document.getElementById("scrypt_salt_label").innerText = Language.get("salt")</script></label>
+        <div class="layui-input-block">
+            <input type="text" id="scrypt_salt" name="scrypt_salt" placeholder=""
+                   autocomplete="off"
+                   class="layui-input"><script>document.getElementById("scrypt_salt").setAttribute("placeholder", Language.get("please_input_salt"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="scrypt_plain_text"><script>document.getElementById("scrypt_plain_text").innerText = Language.get("password")</script></label>
+        <div class="layui-input-inline">
+            <select name="scrypt_password_type" lay-filter="scrypt_password_type" class="select" lay-verify="type">
+                <option value="utf8" id="scrypt_password_encode_utf8"><script>document.getElementById("scrypt_password_encode_utf8").innerText = Language.get("utf8")</script></option>
+                <option value="base64" id="scrypt_password_encode_base64"><script>document.getElementById("scrypt_password_encode_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="scrypt_password_encode_hex"><script>document.getElementById("scrypt_password_encode_hex").innerText = Language.get("hex")</script></option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="scrypt_cipher_text"><script>document.getElementById("scrypt_cipher_text").innerText = Language.get("output_text")</script></label>
+        <div class="layui-input-inline">
+            <select name="scrypt_out_text" lay-filter="scrypt_out_text" class="select" lay-verify="type">
+                <option value="base64" id="scrypt_result_base64"><script>document.getElementById("scrypt_result_base64").innerText = Language.get("base64")</script></option>
+                <option value="hex" id="scrypt_result_hex"><script>document.getElementById("scrypt_result_hex").innerText = Language.get("hex")</script></option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" id="scrypt_password_text"><script>document.getElementById('scrypt_password_text').innerText = Language.get('password')</script></label>
+        <div class="layui-input-block">
+            <textarea name="scrypt_password" id="scrypt_password"
+                      placeholder="" class="layui-textarea"></textarea><script>document.getElementById("scrypt_password").setAttribute("placeholder", Language.get("please_input_password"));</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="scrypt_do" id="scrypt_execute">
+                <script>document.getElementById('scrypt_execute').innerText = Language.get('execute')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="scrypt_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('scrypt_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<fieldset class="layui-elem-field layui-field-title">
+    <legend id="hash_res">
+        <script>document.getElementById('hash_res').innerText = Language.get('result')</script>
+    </legend>
+    <div class="layui-field-box" id="hash_result_box">
+        <blockquote class="layui-elem-quote layui-quote-nm" id="hash_result" hidden>
+        </blockquote>
+    </div>
+</fieldset>
+
+
+</body>
+
+<div>
+    <div id="hash_execute_loading" style="display:none">
+        <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="execute_hash_loading">
+            <div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+        </div>
+    </div>
+</div>
+</html>

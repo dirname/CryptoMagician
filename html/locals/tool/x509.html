@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="keypair_x509_from_host_title">
+        <script>document.getElementById("keypair_x509_from_host_title").innerText = Language.get("x509_from_distant_host")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item" style="width: auto">
+        <label class="layui-form-label" id="x509_get_host_label">
+            <script>document.getElementById("x509_get_host_label").innerText = Language.get("host")</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" id="x509_get_host" name="x509_host" lay-verify="check_host" placeholder=""
+                   autocomplete="off" class="layui-input">
+            <script>document.getElementById("x509_get_host").setAttribute("placeholder", Language.get("please_input_host"));</script>
+        </div>
+
+        <label class="layui-form-label" id="label_keypair_x509_port">
+            <script>document.getElementById('label_keypair_x509_port').innerText = Language.get('port')</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="number" id="keypair_x509_host_port" name="x509_port" placeholder="" autocomplete="off"
+                   class="layui-input">
+            <script>document.getElementById('keypair_x509_host_port').setAttribute("placeholder", Language.get('please_input_port'))</script>
+        </div>
+
+    </div>
+
+    <div class="layui-form-item" style="width: auto">
+        <label class="layui-form-label" id="label_keypair_x509_reject">
+            <script>document.getElementById('label_keypair_x509_reject').innerText = Language.get('options')</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <input type="checkbox" name="rejectunauthorized" id="keypair_x509_reject" title="Reject Unauthorized"
+                   checked>
+            <script>document.getElementById('keypair_x509_reject').setAttribute("placeholder", Language.get('reject_unauthorized'))</script>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="x509_host_keypair_do" id="x509_host_keypair_execute">
+                <script>document.getElementById('x509_host_keypair_execute').innerText = Language.get('execute')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="x509_host_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('x509_host_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="keypair_x509_from_private_title">
+        <script>document.getElementById("keypair_x509_from_private_title").innerText = Language.get("x509_from_private_key")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item" id="div_x5-9_private">
+        <label class="layui-form-label" id="keypair_x509_private_key">
+            <script>document.getElementById("keypair_x509_private_key").innerText = Language.get("private_key")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="x509_private_key" id="x509_private_key" lay-verify="check_private" placeholder=""
+                      autocomplete="off" class="layui-textarea"></textarea>
+            <script>document.getElementById("x509_private_key").setAttribute("placeholder", Language.get("please_input_private_key"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item" id="div_x509_passphrase">
+        <label class="layui-form-label" id="keypair_x509_private_passphrase">
+            <script>document.getElementById("keypair_x509_private_passphrase").innerText = Language.get("passphrase")</script>
+        </label>
+        <div class="layui-input-block">
+            <input type="text" id="x509_passphrase" name="x509_passphrase" lay-verify=""
+                   placeholder="" autocomplete="off"
+                   class="layui-input">
+            <script>document.getElementById("x509_passphrase").setAttribute("placeholder", Language.get("keypair_passphrase_tips"))</script>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="keypair_x509_private_info">
+            <script>document.getElementById("keypair_x509_private_info").innerText = Language.get("information")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="x509_cert_info" id="x509_private_info" lay-verify="check_info" placeholder=""
+                      autocomplete="off"
+                      class="layui-textarea"></textarea>
+            <script>
+                const info = JSON.stringify({ // this is optional
+                    countryName: 'JP',
+                    stateOrProvinceName: 'Tokyo',
+                    localityName: 'Chiyoda',
+                    organizationName: 'example',
+                    organizationalUnitName: 'Research',
+                    commonName: 'example.com'
+                });
+                document.getElementById("x509_private_info").setAttribute("placeholder", Language.get("x509_tips") + "\n\n" + info.toString());
+            </script>
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="width: auto">
+        <label class="layui-form-label" id="keypair_x509_private_format">
+            <script>document.getElementById("keypair_x509_private_format").innerText = Language.get("format")</script>
+        </label>
+        <div class="layui-input-inline">
+            <select name="x509_cert_format" lay-filter="x509_cert_format" lay-verify="required">
+                <option value="1">ECDSA</option>
+                <option value="2">RSA-PSS</option>
+                <option value="3">RSASSA-PKCS1-v1_5</option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="keypair_x509_private_algorithm">
+            <script>document.getElementById("keypair_x509_private_algorithm").innerText = Language.get("algorithm")</script>
+        </label>
+        <div class="layui-input-inline">
+            <select name="x509_cert_algorithm" lay-filter="x509_cert_algorithm" lay-verify="required"
+                    id="x509_cert_algorithm">
+                <option value="ecdsa-with-sha256">ECDSAWithSHA256</option>
+                <option value="ecdsa-with-sha384">ECDSAWithSHA384</option>
+                <option value="ecdsa-with-sha512">ECDSAWithSHA512</option>
+                <option value="ecdsa-with-sha1">ECDSAWithSHA1</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="label_keypair_x509_days">
+            <script>document.getElementById('label_keypair_x509_days').innerText = Language.get('days')</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="number" id="keypair_x509_cert_days" lay-verify="check_days" name="x509_days" placeholder=""
+                   autocomplete="off" class="layui-input">
+            <script>document.getElementById('keypair_x509_cert_days').setAttribute("placeholder", Language.get('days_tips'))</script>
+        </div>
+
+        <label class="layui-form-label" id="label_keypair_x509_salt">
+            <script>document.getElementById('label_keypair_x509_salt').innerText = Language.get('salt_length')</script>
+        </label>
+        <div class="layui-input-inline">
+            <input type="number" id="keypair_x509_cert_salt" lay-verify="" name="x509_salt" placeholder=""
+                   autocomplete="off" class="layui-input layui-disabled">
+            <script>document.getElementById('keypair_x509_cert_salt').setAttribute("placeholder", Language.get('no_need_salt'))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="x509_private_keypair_do"
+                    id="x509_private_keypair_execute">
+                <script>document.getElementById('x509_private_keypair_execute').innerText = Language.get('execute')</script>
+            </button>
+            <button type="button" class="layui-btn layui-btn-warm" id="x509_default_info">
+                <script>document.getElementById('x509_default_info').innerText = Language.get('default_info')</script>
+            </button>
+            <button type="reset" id="x509_private_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('x509_private_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="keypair_x509_from_public_title">
+        <script>document.getElementById("keypair_x509_from_public_title").innerText = Language.get("public_from_x509")</script>
+    </legend>
+</fieldset>
+
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="keypair_x509_public">
+            <script>document.getElementById("keypair_x509_public").innerText = Language.get("x509_cert")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="x509_public" id="x509_public" lay-verify="check_cert" placeholder=""
+                      autocomplete="off" class="layui-textarea"></textarea>
+            <script>document.getElementById("x509_public").setAttribute("placeholder", Language.get("please_input_cert"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="x509_format_out"><script>document.getElementById("x509_format_out").innerText = Language.get("out_format")</script></label>
+        <div class="layui-input-block">
+            <input type="radio" name="x509_format_out" value="pkcs1" title="PKCS1" checked>
+            <input type="radio" name="x509_format_out" value="pkcs8" title="PKCS8">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="x509_public_keypair_do" id="x509_public_keypair_execute">
+                <script>document.getElementById('x509_public_keypair_execute').innerText = Language.get('execute')</script>
+            </button>
+            <!-- button lay-submit="" lay-filter="abstract_file" class="layui-btn layui-btn-warm" id="message_digest_file"><script>document.getElementById('message_digest_file').innerText = Language.get('calculated_files')</script></button -->
+            <button type="reset" id="x509_public_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('x509_public_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+
+
+<fieldset class="layui-elem-field layui-field-title">
+    <legend id="x509_res">
+        <script>document.getElementById('x509_res').innerText = Language.get('result')</script>
+    </legend>
+    <div class="layui-field-box" id="x509_result_box">
+        <blockquote class="layui-elem-quote layui-quote-nm" id="x509_result" hidden>
+        </blockquote>
+    </div>
+</fieldset>
+
+</body>
+
+<div>
+    <div id="x509_keypair_loading" style="display:none">
+        <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="keypair_x509_loading">
+            <div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+        </div>
+    </div>
+</div>
+</html>

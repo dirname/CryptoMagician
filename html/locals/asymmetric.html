@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="../lib/asymmetric.js"></script>
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend id="asymmetric_algorithm">
+        <script>document.getElementById("asymmetric_algorithm").innerText = Language.get("asymmetric_algorithm")</script>
+    </legend>
+</fieldset>
+<form class="layui-form" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="asymmetric_algo">
+            <script>document.getElementById("asymmetric_algo").innerText = Language.get("algorithm")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="asymmetric_algorithm" lay-filter="asymmetric_algo" lay-verify="required">
+                <!-- option value="" id="asymmetric_select"><script>document.getElementById('asymmetric_select').innerText = Language.get('algorithm_select')</script></option -->
+                <option value="rsa" id="asymmetric_rsa">
+                    <script>document.getElementById("asymmetric_rsa").innerText = Language.get("rsa")</script>
+                </option>
+            </select>
+        </div>
+        <label class="layui-form-label" id="asymmetric_operate">
+            <script>document.getElementById("asymmetric_operate").innerText = Language.get("operate")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="asymmetric_operate" lay-filter="asymmetric_operate" lay-verify="required">
+                <option value="public_encrypt" id="asymmetric_public_encrypt">
+                    <script>document.getElementById('asymmetric_public_encrypt').innerText = Language.get('public_key_encrypt')</script>
+                </option>
+                <option value="private_encrypt" id="asymmetric_private_encrypt">
+                    <script>document.getElementById('asymmetric_private_encrypt').innerText = Language.get('private_key_encrypt')</script>
+                </option>
+                <option value="public_decrypt" id="asymmetric_public_decrypt">
+                    <script>document.getElementById('asymmetric_public_decrypt').innerText = Language.get('public_key_decrypt')</script>
+                </option>
+                <option value="private_decrypt" id="asymmetric_private_decrypt">
+                    <script>document.getElementById('asymmetric_private_decrypt').innerText = Language.get('private_key_decrypt')</script>
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" id="asymmetric_padding">
+            <script>document.getElementById("asymmetric_padding").innerText = Language.get("padding")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="asymmetric_padding" lay-filter="asymmetric_padding" lay-verify="required">
+                <option value="pkcs1">PKCS1</option>
+                <option value="pkcs1_oaep">PKCS1_OAEP</option>
+            </select>
+        </div>
+        <label class="layui-form-label" id="asymmetric_private_encrypted">
+            <script>document.getElementById("asymmetric_private_encrypted").innerText = Language.get("private_status")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="asymmetric_private_encrypted" id="asymmetric_private_encrypt_select"
+                    lay-filter="asymmetric_private_encrypted" lay-verify="required" disabled>
+                <option value="true" id="private_true">
+                    <script>document.getElementById("private_true").innerText = Language.get("yes_encrypted")</script>
+                </option>
+                <option value="false" id="private_false" selected>
+                    <script>document.getElementById("private_false").innerText = Language.get("no_plain_text")</script>
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text" id="asymmetric_public_item">
+        <label class="layui-form-label" id="public-key">
+            <script>document.getElementById("public-key").innerText = Language.get("public_key")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="public_key" id="public_key_text" required lay-verify="check_public"
+                      placeholder="" class="layui-textarea"></textarea>
+            <script>document.getElementById("public_key_text").setAttribute("placeholder", Language.get("please_input_public_key"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item" id="asymmetric_private_password_item" hidden>
+        <label class="layui-form-label" id="asymmetric_private_password">
+            <script>document.getElementById("asymmetric_private_password").innerText = Language.get("passphrase")</script>
+        </label>
+        <div class="layui-input-block">
+            <input type="text" id="private_key" name="private_key_password" required placeholder=""
+                   autocomplete="off" class="layui-input layui-disabled" value="" disabled="true">
+            <script>document.getElementById("private_key").setAttribute("placeholder", Language.get("passphrase_tips"));
+            document.getElementById("private_key").setAttribute("value", Language.get("private_no_password"));</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text" id="asymmetric_private_item" hidden>
+        <label class="layui-form-label" id="private-key">
+            <script>document.getElementById("private-key").innerText = Language.get("private_key")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="private_key" id="private_key_text" placeholder="" class="layui-textarea"></textarea>
+            <script>document.getElementById("private_key_text").setAttribute("placeholder", Language.get("please_input_private_key"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+
+        <label class="layui-form-label" id="asymmetric_in_coding">
+            <script>document.getElementById("asymmetric_in_coding").innerText = Language.get("input_text")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="asymmetric_in_coding" id="asymmetric_in_encode" lay-filter="asymmetric_in_coding">
+                <option value="utf8" id="asymmetric_plain_encode_utf8">
+                    <script>document.getElementById("asymmetric_plain_encode_utf8").innerText = Language.get("utf8")</script>
+                </option>
+                <option value="base64" id="asymmetric_plain_encode_base64">
+                    <script>document.getElementById("asymmetric_plain_encode_base64").innerText = Language.get("base64")</script>
+                </option>
+                <option value="hex" id="asymmetric_plain_encode_hex">
+                    <script>document.getElementById("asymmetric_plain_encode_hex").innerText = Language.get("hex")</script>
+                </option>
+            </select>
+        </div>
+
+        <label class="layui-form-label" id="asymmetric_cipher_text">
+            <script>document.getElementById("asymmetric_cipher_text").innerText = Language.get("cipher_text")</script>
+        </label>
+        <div class="layui-input-inline" style="width: auto">
+            <select name="asymmetric_out_coding" id="asymmetric_out_encode" lay-filter="asymmetric_out_coding">
+                <option value="base64" id="asymmetric_cipher_base64">
+                    <script>document.getElementById("asymmetric_cipher_base64").innerText = Language.get("base64")</script>
+                </option>
+                <option value="hex" id="asymmetric_cipher_hex">
+                    <script>document.getElementById("asymmetric_cipher_hex").innerText = Language.get("hex")</script>
+                </option>
+                <option value="Both" id="asymmetric_cipher_both">
+                    <script>document.getElementById("asymmetric_cipher_both").innerText = Language.get("hex_and_base64")</script>
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" id="asymmetric_plain_label">
+            <script>document.getElementById("asymmetric_plain_label").innerText = Language.get("plain_text")</script>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="asymmetric_text" id="asymmetric_text" required lay-verify="check_private"
+                      placeholder="" class="layui-textarea"></textarea>
+            <script>document.getElementById("asymmetric_text").setAttribute("placeholder", Language.get("please_input_encrypt_text"))</script>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="asymmetric_do" id="asymmetric_execute">
+                <script>document.getElementById('asymmetric_execute').innerText = Language.get('execute')</script>
+            </button>
+            <button type="button" id="keypair_tool" class="layui-btn layui-btn-warm">
+                <script>document.getElementById("keypair_tool").innerText = Language.get("keypair_tool")</script>
+            </button>
+            <button type="reset" id="asymmetric_reset" class="layui-btn layui-btn-primary">
+                <script>document.getElementById('asymmetric_reset').innerText = Language.get('reset')</script>
+            </button>
+        </div>
+    </div>
+</form>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend id="asymmetric_res">
+        <script>document.getElementById('asymmetric_res').innerText = Language.get('result')</script>
+    </legend>
+    <div class="layui-field-box" id="asymmetric_result_box">
+        <blockquote class="layui-elem-quote layui-quote-nm" id="asymmetric_result" hidden></blockquote>
+    </div>
+</fieldset>
+</body>
+</html>
