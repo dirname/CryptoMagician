@@ -293,6 +293,7 @@ const data = {
     "encoding_converter": "编码转换器",
     "encoding_wiki": "<h3><b>支持的编码</b></h3><br>    Node.js 原生编码:  <b>utf8, ucs2 / utf16le, ascii, binary, base64, hex</b><br><br>    Unicode: <b>UTF-16BE, UTF-16 (with BOM)</b><br><br>    单字节码:<br> Windows 编码: <b>874, 1250-1258 (aliases: cpXXX, winXXX, windowsXXX)</b><br>    ISO 编码: <b>ISO-8859-1 - ISO-8859-16</b><br>    IBM 编码: <b>437, 737, 775, 808, 850, 852, 855-858, 860-866, 869, 922, 1046, 1124, 1125, 1129, 1133, 1161-1163 (aliases cpXXX, ibmXXX)</b><br>    Mac 编码: <b>maccroatian, maccyrillic, macgreek, maciceland, macroman, macromania, macthai, macturkish, macukraine, maccenteuro, macintosh</b><br>    KOI8 编码: <b>koi8-r, koi8-u, koi8-ru, koi8-t</b></br>    其他: <b>armscii8, rk1048, tcvn, georgianacademy, georgianps, pt154, viscii, iso646cn, iso646jp, hproman8, tis620</b><br><br>    多字节码: <br> 日文: <b>Shift_JIS, Windows-31j, Windows932, EUC-JP</b><br>    中文: <b>GB2312, GBK, GB18030, Windows936, EUC-CN</b><br>    韩文: <b>KS_C_5601, Windows949, EUC-KR</b><br>    台湾/香港: <b>Big5, Big5-HKSCS, Windows950</b><br>",
     "encoding_tools": "编码工具",
+    "encoding_tools_title": "Crypto Magician - 编码工具",
     "time_stamp": "时间戳",
     "date_time": "日期时间",
     "please_input_time_stamp": "请输入时间戳",

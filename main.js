@@ -318,7 +318,7 @@ function openEncoding(){
         //encoding_win.isVisible() ? encoding_win.hide() : encoding_win.show();
         encoding_win.show();
     }else {
-        encoding_win = new BrowserWindow({show: false, width: 800, height: 490, title: language["encoding_tools"] });
+        encoding_win = new BrowserWindow({show: false, width: 800, height: 490, title: language["encoding_tools_title"] });
         encoding_win.loadFile('./html/locals/tool/encoding.html');
         encoding_win.setMenu(null);
         encoding_win.once('ready-to-show', () => {

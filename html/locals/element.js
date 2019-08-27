@@ -808,7 +808,7 @@ function listen () {
     function setKeyOn(){
         $("#hmac_key").removeAttr("disabled");
         $("#hmac_key").attr({"placeholder": Language.get("please_input_hmac"), "class": "layui-input"});
-        if ($("#hmac_key").val() === "" || $("#hmac_key").val().indexOf('HMAC is disabled') >= 0) {
+        if ($("#hmac_key").val() === "" || $("#hmac_key").val() === Language.get("hmac_is_disabled")) {
             $("#hmac_key").val("");
         }
         $("#div_hmac_key").removeAttr("hidden");

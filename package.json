@@ -7,7 +7,7 @@
     "postinstall": "electron-builder install-app-deps",
     "start": "electron .",
     "package": "npm-run-all package:*",
-    "dist": "electron-builder --win --x64",
+    "dist": "electron-builder --x64 --ia32",
     "pack": "electron-builder --dir",
     "package:mac": "electron-packager . 'CryptoMan' --platform=darwin --arch=x64 --icon=app.icns --out=./dist --asar --app-version=1.0.0",
     "package:win": "electron-packager . --overwrite --platform=win32 --arch=x64 --icon=app.ico --out=./out --asar --app-version=0.0.1",
@@ -62,7 +62,7 @@
     "productName": "Crypto Magician",
     "dmg": {
       "title": "${productName} ${version}",
-      "icon": "app.icns",
+      "icon": "./app.icns",
       "window": {
         "x": 100,
         "y": 100,
@@ -70,8 +70,19 @@
         "height": 300
       }
     },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "./app.icns"
+    },
     "win": {
       "icon": "app.ico"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "uninstallDisplayName": "${productName}"
     }
   }
 }
