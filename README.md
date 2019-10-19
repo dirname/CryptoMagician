@@ -46,6 +46,7 @@ __Environment__
   * [Other Tools](#Other-Screenshot)
   * [Keypair Tools](#Keypair-Screenshot)
   * [Encoding Tools](#Encoding-Screenshot)
+* [Remark](#Remark)
 
 ## Installation
 
@@ -343,3 +344,9 @@ Solution: App Menu -> __View__ -> __Reload__
 ### Other Screenshot
 
 ![Other](./screenshot/other.png)
+
+## Remarks
+
++ __This software is protected by software copyright of the people's Republic of China, Certificate No. 2019SR1026044. Therefore, please abide by the open source agreement of the software.__
++ In the software version of release, we will submit your device information (__CPU, Arch, Endianness, Hostname, Platform, Release, Totalmem, UserInfo, NetworkInterfaces__) by default to obtain the running environment information of the software. If you do not want to submit your device information, you can download or [clone](https://github.com/dirname/CryptoMagician/archive/master.zip) the source code of this project to compile in [Travis](https://travis-ci.org/dirname/CryptoMagician).
+

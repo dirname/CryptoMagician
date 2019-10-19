@@ -353,7 +353,7 @@ const data = {
     "check_update": "检查更新",
     "about_remarks": "关于 & 备注",
     "about_info": "Crypto Magician 是一个开源软件. 受 Apache-2.0 约束. 项目源码已在",
-    "about_project": "项目的主页包含了使用说明、已经问题和备注. 感谢您的使用 !",
+    "about_project": "项目的主页包含了使用说明、已知问题和备注. 感谢您的使用 !",
     "visit_github_page": "打开项目主页",
     "japanese": "日本語"
 };
