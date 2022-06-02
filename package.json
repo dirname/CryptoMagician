@@ -52,7 +52,7 @@
     "js-x509-utils": "^0.4.7",
     "mcrypt": "^0.1.15",
     "node-rsa": "^1.0.5",
-    "protobufjs": "^6.8.8",
+    "protobufjs": "^6.11.3",
     "scrypt": "^6.0.3",
     "silly-datetime": "^0.1.2",
     "x509-certificate": "^1.1.1"
